@@ -7,82 +7,167 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;600&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d0d0e; color: #f0ede8; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; min-height: 100vh; }
-  .lang-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; background: radial-gradient(ellipse at 50% 30%, rgba(139,115,85,0.07) 0%, transparent 70%); }
-  .lang-screen h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 8vw, 56px); font-weight: 300; letter-spacing: 0.15em; margin-bottom: 6px; }
+  body { background: #f8f7f5; color: #111111; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; min-height: 100vh; }
+  .lang-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; background: #f8f7f5; }
+  .lang-screen h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 8vw, 56px); font-weight: 300; letter-spacing: 0.15em; margin-bottom: 6px; color: #111111; }
   .lang-screen .sub { font-size: 12px; letter-spacing: 0.25em; color: #8b7355; margin-bottom: 48px; text-transform: uppercase; }
-  .lang-divider { width: 1px; height: 40px; background: #2a2a2c; margin: 0 auto 32px; }
-  .lang-label { font-size: 11px; letter-spacing: 0.2em; color: #666; margin-bottom: 20px; text-transform: uppercase; }
+  .lang-divider { width: 1px; height: 40px; background: #ddd; margin: 0 auto 32px; }
+  .lang-label { font-size: 11px; letter-spacing: 0.2em; color: #888888; margin-bottom: 20px; text-transform: uppercase; }
   .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 320px; }
-  .lang-btn { padding: 16px 12px; background: #141415; border: 1px solid #2a2a2c; border-radius: 10px; color: #f0ede8; font-size: 15px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .lang-btn:hover { border-color: #8b7355; background: #1a1a1b; transform: translateY(-2px); }
+  .lang-btn { padding: 16px 12px; background: #fff; border: 1px solid #e0ddd8; border-radius: 10px; color: #111111; font-size: 15px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .lang-btn:hover { border-color: #8b7355; background: #faf9f7; transform: translateY(-2px); }
   #main-page { display: none; }
-  .header { text-align: center; padding: 60px 24px 48px; border-bottom: 1px solid #1e1e1f; background: linear-gradient(180deg, #111012 0%, #0d0d0e 100%); position: relative; overflow: hidden; }
-  .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(139,115,85,0.06) 0%, transparent 65%); }
+  .header { text-align: center; padding: 60px 24px 48px; border-bottom: 1px solid #e8e5e0; background: linear-gradient(180deg, #fff 0%, #f8f7f5 100%); position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(139,115,85,0.04) 0%, transparent 65%); }
   .header-inner { position: relative; }
   .header .eyebrow { font-size: 10px; letter-spacing: 0.35em; color: #8b7355; margin-bottom: 16px; text-transform: uppercase; }
-  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 8vw, 64px); font-weight: 300; letter-spacing: 0.14em; line-height: 1; margin-bottom: 12px; }
-  .header .address { font-size: 12px; color: #666; letter-spacing: 0.08em; }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 8vw, 64px); font-weight: 300; letter-spacing: 0.14em; line-height: 1; margin-bottom: 12px; color: #111111; }
+  .header .address { font-size: 12px; color: #999; letter-spacing: 0.08em; }
   .container { max-width: 640px; margin: 0 auto; padding: 0 20px; }
-  .section { padding: 48px 0; border-bottom: 1px solid #1a1a1b; }
+  .section { padding: 48px 0; border-bottom: 1px solid #ebe8e3; }
   .section:last-child { border-bottom: none; }
   .section-head { text-align: center; margin-bottom: 28px; }
   .section-head .eyebrow { font-size: 10px; letter-spacing: 0.3em; color: #8b7355; margin-bottom: 8px; text-transform: uppercase; }
-  .section-head h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; }
-  .card { background: #141415; border: 1px solid #222224; border-radius: 12px; padding: 24px; }
-  .welcome-text { text-align: center; font-size: 15px; line-height: 1.9; color: #ccc; white-space: pre-line; }
-  .info-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #1e1e1f; }
+  .section-head h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: #111111; }
+  .card { background: #fff; border: 1px solid #e8e5e0; border-radius: 12px; padding: 24px; }
+  .welcome-text { text-align: center; font-size: 15px; line-height: 1.9; color: #888888666; white-space: pre-line; }
+  .info-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #ebe8e3; }
   .info-row:last-child { border-bottom: none; padding-bottom: 0; }
   .info-icon { font-size: 18px; min-width: 24px; text-align: center; margin-top: 2px; }
   .info-label { font-size: 10px; letter-spacing: 0.2em; color: #8b7355; text-transform: uppercase; margin-bottom: 4px; }
-  .info-value { font-size: 15px; font-weight: 400; color: #f0ede8; line-height: 1.6; }
-  .info-sub { font-size: 12px; color: #777; margin-top: 2px; }
+  .info-value { font-size: 15px; font-weight: 400; color: #111111; line-height: 1.6; }
+  .info-sub { font-size: 13px; color: #555555; margin-top: 2px; }
   .map-btns { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
   .map-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 500; font-family: 'Noto Sans KR', sans-serif; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
-  .map-btn.google { background: #fff; color: #333; }
+  .map-btn.google { background: #f0f0f0; color: #333; border: 1px solid #ddd; }
   .map-btn.google:hover { background: #f0f0f0; transform: translateY(-1px); }
   .map-btn.kakao { background: #FEE500; color: #3C1E1E; }
   .map-btn.kakao:hover { background: #fdd800; transform: translateY(-1px); }
-  .sns-phone-card { background: #141415; border: 1px solid #222224; border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+  .sns-phone-card { background: #fff; border: 1px solid #e8e5e0; border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
   .sns-phone-label { font-size: 10px; color: #8b7355; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 4px; }
-  .sns-phone-num { font-size: 20px; font-weight: 500; letter-spacing: 0.06em; color: #f0ede8; }
-  .sns-hours { font-size: 12px; color: #666; margin-top: 2px; }
+  .sns-phone-num { font-size: 20px; font-weight: 500; letter-spacing: 0.06em; color: #111111; }
+  .sns-hours { font-size: 12px; color: #555555; margin-top: 2px; }
+  .sns-contact-note { font-size: 11px; color: #c0392b; margin-top: 6px; font-weight: 500; }
   .call-btn { padding: 10px 20px; background: #8b7355; border: none; border-radius: 8px; color: #fff; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; text-decoration: none; white-space: nowrap; transition: all 0.2s; }
   .call-btn:hover { background: #9d8463; }
   /* SNS Cards with QR */
   .sns-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .sns-card { border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
+  .sns-card { border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; }
   .sns-card:hover { transform: translateY(-2px); filter: brightness(1.05); }
-  .sns-card-top { display: flex; flex-direction: column; gap: 4px; }
+  .sns-card-top { display: flex; flex-direction: column; gap: 4px; align-items: center; width: 100%; }
   .sns-name { font-size: 13px; font-weight: 700; letter-spacing: 0.05em; }
-  .sns-handle { font-size: 11px; opacity: 0.8; }
-  .sns-desc { font-size: 11px; opacity: 0.65; margin-bottom: 10px; }
+  .sns-handle { font-size: 11px; opacity: 1; font-weight: 500; }
+  .sns-desc { font-size: 11px; opacity: 0.9; margin-bottom: 10px; }
   .sns-qr { width: 100%; max-width: 120px; display: block; margin: 0 auto; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); }
   .sns-qr-white { background: white; padding: 4px; border-radius: 6px; display: block; margin: 0 auto; }
   .sns-whatsapp-content { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
   .sns-whatsapp-num { font-size: 12px; font-weight: 600; margin-top: 8px; }
   .checkin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .checkin-box { text-align: center; padding: 20px; background: #0f0f10; border: 1px solid #222; border-radius: 10px; }
+  .checkin-box { text-align: center; padding: 20px; background: transparent; border: 1px solid #e0ddd8; border-radius: 10px; }
   .checkin-type { font-size: 10px; letter-spacing: 0.2em; color: #8b7355; text-transform: uppercase; margin-bottom: 8px; }
-  .checkin-time { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; letter-spacing: 0.05em; }
-  .checkin-note { font-size: 11px; color: #555; margin-top: 4px; }
-  .rest-note { background: #141415; border: 1px solid #222224; border-radius: 12px; padding: 20px 24px; text-align: center; color: #aaa; font-size: 14px; line-height: 1.8; }
+  .checkin-time { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; letter-spacing: 0.05em; color: #111111; }
+  .checkin-note { font-size: 12px; color: #666666; margin-top: 4px; }
+  .rest-note { background: #fff; border: 1px solid #e8e5e0; border-radius: 12px; padding: 20px 24px; text-align: center; color: #888888; font-size: 14px; line-height: 1.8; }
   .rest-guide-btn { display: block; margin-top: 16px; padding: 12px 24px; background: #8b7355; border-radius: 8px; color: #fff; font-size: 14px; text-decoration: none; font-family: 'Noto Sans KR', sans-serif; transition: all 0.2s; font-weight: 500; }
   .rest-guide-btn:hover { background: #9d8463; transform: translateY(-1px); }
-  .review-msg { text-align: center; margin-bottom: 28px; font-size: 15px; color: #bbb; line-height: 1.9; white-space: pre-line; }
+  .review-msg { text-align: center; margin-bottom: 28px; font-size: 15px; color: #888888; line-height: 1.9; white-space: pre-line; }
   .stars { text-align: center; font-size: 22px; letter-spacing: 2px; margin-bottom: 24px; }
   .platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .platform-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 12px; background: #141415; border: 1px solid #222224; border-radius: 10px; text-decoration: none; color: #f0ede8; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; transition: all 0.2s; }
-  .platform-btn:hover { border-color: #8b7355; background: #1a1a1b; transform: translateY(-2px); }
+  .platform-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 12px; background: #fff; border: 1px solid #e0ddd8; border-radius: 10px; text-decoration: none; color: #111111; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; transition: all 0.2s; }
+  .platform-btn:hover { border-color: #8b7355; background: #faf9f7; transform: translateY(-2px); }
   .gift-card { text-align: center; padding: 36px 24px; }
   .gift-emoji { font-size: 36px; margin-bottom: 16px; }
-  .gift-text { font-size: 15px; color: #aaa; line-height: 2; white-space: pre-line; }
-  footer { text-align: center; padding: 32px 20px; border-top: 1px solid #1a1a1b; font-size: 11px; color: #444; letter-spacing: 0.08em; }
+  .gift-text { font-size: 15px; color: #888888; line-height: 2; white-space: pre-line; }
+  footer { text-align: center; padding: 32px 20px; border-top: 1px solid #ebe8e3; font-size: 11px; color: #888888777; letter-spacing: 0.08em; }
   .print-section { text-align: center; padding: 20px; }
-  .print-btn { padding: 10px 24px; background: transparent; border: 1px solid #333; border-radius: 6px; color: #666; font-size: 12px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; transition: all 0.2s; }
+  .print-btn { padding: 10px 24px; background: transparent; border: 1px solid #ccc; border-radius: 6px; color: #999; font-size: 12px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; transition: all 0.2s; }
   .print-btn:hover { border-color: #8b7355; color: #8b7355; }
   @media (max-width: 400px) { .sns-grid, .platform-grid, .checkin-grid { grid-template-columns: 1fr; } }
   @media print { .lang-screen { display: none !important; } #main-page { display: block !important; } .print-section { display: none; } }
+
+  /* ── LIGHT THEME FORCE OVERRIDE ── */
+  body, #main-page, #lang-screen {
+    background: #f8f7f5 !important;
+    color: #111111 !important;
+  }
+  .header {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f7f5 100%) !important;
+    border-bottom: 1px solid #e8e5e0 !important;
+  }
+  .section { border-bottom: 1px solid #ebe8e3 !important; }
+  .card { background: #ffffff !important; border-color: #e8e5e0 !important; }
+  .checkin-box { background: transparent !important; border-color: #e0ddd8 !important; }
+  .sns-phone-card { background: #ffffff !important; border-color: #e8e5e0 !important; }
+  .rest-note { background: #ffffff !important; border-color: #e8e5e0 !important; }
+  .platform-btn { background: #ffffff !important; border-color: #e0ddd8 !important; color: #111111 !important; }
+  .platform-btn:hover { background: #faf9f7 !important; }
+  .lang-btn { background: #ffffff !important; border-color: #e0ddd8 !important; color: #111111 !important; }
+  footer { border-top: 1px solid #ebe8e3 !important; color: #aaaaaa !important; background: #f8f7f5 !important; }
+  .section-head h2 { color: #111111 !important; }
+  .checkin-time { color: #111111 !important; }
+  .sns-phone-num { color: #111111 !important; }
+  .info-value { color: #111111 !important; }
+  .header h1 { color: #111111 !important; }
+  .welcome-text { color: #555555 !important; }
+  .review-msg { color: #666666 !important; }
+  .gift-text { color: #777777 !important; }
+
+
+  .emergency-badge {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    background: #c0392b; color: #fff; padding: 2px 8px;
+    border-radius: 20px; letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .emergency-badge-yellow {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    background: #7a1a10; color: #fff; padding: 2px 8px;
+    border-radius: 20px; letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .inquiry-notice {
+    background: #fff8f0; border: 1px solid #e8c99a; border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 14px; text-align: center;
+  }
+  .inquiry-notice p { font-size: 13px; color: #333; font-weight: 500; line-height: 1.7; }
+  .inquiry-notice strong { color: #8b7355; }
+
+
+  /* ── ACCORDION ── */
+  .accordion { margin-bottom: 8px; border: 1px solid #e0ddd8; border-radius: 12px; overflow: hidden; background: #fff; }
+  .accordion-btn {
+    width: 100%; padding: 16px 20px; background: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    border: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px; font-weight: 600; color: #111; text-align: left;
+    transition: background 0.15s;
+  }
+  .accordion-btn:hover { background: #faf9f7; }
+  .accordion-btn .acc-left { display: flex; align-items: center; gap: 10px; }
+  .accordion-btn .acc-icon { font-size: 18px; }
+  .accordion-btn .acc-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
+  .accordion-btn.open .acc-arrow { transform: rotate(180deg); }
+  .accordion-body { display: none; padding: 0 20px 18px; border-top: 1px solid #f0ede8; }
+  .accordion-body.open { display: block; }
+
+  /* 시설 그리드 */
+  .amenity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 14px; }
+  .amenity-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #333; font-weight: 400; }
+  .amenity-item .a-icon { font-size: 16px; }
+
+  /* 인포 리스트 */
+  .info-list { padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .info-list-item { display: flex; gap: 10px; align-items: flex-start; }
+  .info-list-item .il-icon { font-size: 15px; min-width: 20px; }
+  .info-list-item .il-text { font-size: 13px; color: #333; line-height: 1.6; }
+  .info-list-item .il-text strong { color: #111; font-weight: 600; }
+  .info-list-item .il-text .il-sub { font-size: 11px; color: #999; margin-top: 1px; }
+
+  /* 비밀번호 카드 */
+  .pw-card { background: #f8f7f5; border-radius: 8px; padding: 12px 16px; margin-top: 4px; }
+  .pw-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #ece9e4; font-size: 13px; }
+  .pw-row:last-child { border-bottom: none; }
+  .pw-label { color: #888; }
+  .pw-value { font-weight: 700; color: #111; letter-spacing: 0.05em; font-family: monospace; font-size: 15px; }
+
 </style>
 </head>
 <body>
@@ -125,13 +210,13 @@
         <h2 id="loc-title"></h2>
       </div>
       <div class="card">
-        <div class="info-row">
+        <div class="info-row" style="flex-direction:column; align-items:center; text-align:center;">
           <div class="info-icon">📍</div>
-          <div style="flex:1;">
+          <div style="width:100%; text-align:center;">
             <div class="info-label" id="loc-addr-label"></div>
             <div class="info-value" id="loc-addr-value"></div>
             <div class="info-sub" id="loc-subway"></div>
-            <div class="map-btns">
+            <div class="map-btns" style="justify-content:center;">
               <a class="map-btn google" href="https://maps.google.com/?q=서울+중구+충무로+CF호텔" target="_blank">🗺 Google Maps</a>
               <a class="map-btn kakao" href="https://map.kakao.com/link/search/서울 중구 충무로 CF호텔" target="_blank">🗺 카카오맵</a>
             </div>
@@ -139,6 +224,114 @@
         </div>
       </div>
     </section>
+
+    <!-- HOTEL INFO ACCORDION -->
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">Hotel Info</p>
+        <h2 id="hotel-info-title">호텔 이용 안내</h2>
+      </div>
+
+      <!-- 객실 시설 -->
+      <div class="accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span class="acc-left"><span class="acc-icon">🛏</span><span id="acc-amenity-title">객실 내 비치 시설</span></span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <div class="amenity-grid">
+            <div class="amenity-item"><span class="a-icon">📶</span> Wi-Fi</div>
+            <div class="amenity-item"><span class="a-icon">📺</span> TV</div>
+            <div class="amenity-item"><span class="a-icon">❄️</span> <span id="acc-ac">에어컨</span></div>
+            <div class="amenity-item"><span class="a-icon">🔥</span> <span id="acc-heat">난방(중앙 제어)</span></div>
+            <div class="amenity-item"><span class="a-icon">🧊</span> <span id="acc-fridge">냉장고</span></div>
+            <div class="amenity-item"><span class="a-icon">💨</span> <span id="acc-dryer">헤어드라이어</span></div>
+            <div class="amenity-item"><span class="a-icon">☕</span> <span id="acc-kettle">전기포트</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 호텔 정보 -->
+      <div class="accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span class="acc-left"><span class="acc-icon">ℹ️</span><span id="acc-info-title">이용 안내</span></span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <div class="info-list">
+            <div class="info-list-item">
+              <span class="il-icon">🔐</span>
+              <div class="il-text">
+                <div class="pw-card">
+                  <div class="pw-row">
+                    <span class="pw-label" id="pw-lobby-label">로비 입구</span>
+                    <span class="pw-value">0993#</span>
+                  </div>
+                  <div class="pw-row">
+                    <span class="pw-label">Wi-Fi</span>
+                    <span class="pw-value">12345678</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="info-list-item">
+              <span class="il-icon">🥤</span>
+              <div class="il-text">
+                <strong id="acc-drink-title">1F 음료</strong><br>
+                <span id="acc-drink-desc">냉장고 음료 자유 이용 · 부족 시 카운터 문의</span>
+              </div>
+            </div>
+            <div class="info-list-item">
+              <span class="il-icon">🧳</span>
+              <div class="il-text">
+                <strong id="acc-luggage-title">짐 보관</strong><br>
+                <span id="acc-luggage-desc">체크인 전·체크아웃 후 보관 가능</span>
+              </div>
+            </div>
+            <div class="info-list-item">
+              <span class="il-icon">⏰</span>
+              <div class="il-text">
+                <strong id="acc-late-title">체크아웃 연장</strong><br>
+                <span id="acc-late-desc">최대 13:00까지 가능 · 시간당 10,000원</span>
+              </div>
+            </div>
+            <div class="info-list-item">
+              <span class="il-icon">🔄</span>
+              <div class="il-text">
+                <strong id="acc-rental-title">무료 대여</strong><br>
+                <span id="acc-rental-desc">변환기 · 콘센트 어댑터 · 우산 (수량 한정)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 객실 청소 -->
+      <div class="accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">
+          <span class="acc-left"><span class="acc-icon">🧹</span><span id="acc-clean-title">객실 청소 서비스</span></span>
+          <span class="acc-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <div class="info-list">
+            <div class="info-list-item">
+              <span class="il-icon">📋</span>
+              <div class="il-text" id="acc-clean-desc1">청소는 요청 시에만 제공됩니다.<br><span class="il-sub">원하실 경우 미리 또는 메시지로 알려주세요</span></div>
+            </div>
+            <div class="info-list-item">
+              <span class="il-icon">🕐</span>
+              <div class="il-text" id="acc-clean-desc2">당일 청소 요청은 <strong>오전 10시 전</strong>까지<br><span class="il-sub">청소 시간: 오전 11시 ~ 오후 4시</span></div>
+            </div>
+            <div class="info-list-item">
+              <span class="il-icon">🛁</span>
+              <div class="il-text" id="acc-clean-desc3">비품 및 수건은 언제든지 요청 가능</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
 
     <!-- CHECK-IN -->
     <section class="section">
@@ -167,8 +360,14 @@
         <h2 id="contact-title"></h2>
       </div>
 
+      <!-- 일반 문의 안내 박스 -->
+      <div class="inquiry-notice">
+        <p id="inquiry-notice-text"></p>
+      </div>
+
       <div class="sns-phone-card">
         <div>
+          <span class="emergency-badge" id="emergency-badge-phone"></span>
           <div class="sns-phone-label" id="contact-phone-label"></div>
           <div class="sns-phone-num">010-5379-8462</div>
           <div class="sns-hours" id="contact-hours"></div>
@@ -180,6 +379,7 @@
         <!-- KakaoTalk -->
         <div class="sns-card" style="background:#FEE500; color:#3C1E1E;">
           <div class="sns-card-top">
+            <span class="emergency-badge-yellow" id="emergency-badge-sns"></span>
             <div class="sns-name">💬 KakaoTalk</div>
             <div class="sns-handle">@cfhotel</div>
             <div class="sns-desc" id="sns-kakao-desc"></div>
@@ -191,6 +391,7 @@
         <!-- LINE -->
         <div class="sns-card" style="background:#06C755; color:#fff;">
           <div class="sns-card-top">
+            <span class="emergency-badge" style="background:#047a3a;" id="emergency-badge-line"></span>
             <div class="sns-name">💚 LINE</div>
             <div class="sns-handle">@cfhotel</div>
             <div class="sns-desc" id="sns-line-desc"></div>
@@ -202,6 +403,7 @@
         <!-- WeChat -->
         <div class="sns-card" style="background:#07C160; color:#fff;">
           <div class="sns-card-top">
+            <span class="emergency-badge" style="background:#047a3a;" id="emergency-badge-wechat"></span>
             <div class="sns-name">🟢 WeChat</div>
             <div class="sns-handle">CF Hotel</div>
             <div class="sns-desc" id="sns-wechat-desc"></div>
@@ -213,6 +415,7 @@
         <!-- WhatsApp -->
         <a class="sns-card" href="https://wa.me/821053798462" target="_blank" style="background:#25D366; color:#fff; text-decoration:none;">
           <div class="sns-card-top">
+            <span class="emergency-badge" style="background:#1a7a45;" id="emergency-badge-whatsapp"></span>
             <div class="sns-name">📱 WhatsApp</div>
             <div class="sns-handle">+82-10-5379-8462</div>
             <div class="sns-desc" id="sns-whatsapp-desc"></div>
@@ -234,6 +437,7 @@
         <a class="rest-guide-btn" href="restaurants.html" id="rest-btn"></a>
       </div>
     </section>
+
 
     <!-- REVIEW -->
     <section class="section">
@@ -270,47 +474,95 @@
 <script>
 const LANG = {
   ko: {
-    hdrAddress: "서울특별시 중구 충무로",
+    hdrAddress: "서울특별시 중구 퇴계로37길 22",
     welcome: "CF호텔을 선택해 주셔서 진심으로 감사드립니다.\n편안하고 즐거운 시간이 되시길 바랍니다.",
-    locTitle: "찾아오시는 길", locAddrLabel: "주소", locAddrValue: "서울특별시 중구 충무로", locSubway: "🚇 지하철 충무로역 도보 2분",
-    ciEyebrow: "Check-in / Check-out", ciTitle: "체크인 · 체크아웃", ciInLabel: "체크인", ciInNote: "16:00 이후", ciOutLabel: "체크아웃", ciOutNote: "11:00 이전",
-    contactTitle: "연락처", contactPhoneLabel: "프런트 데스크", contactHours: "운영시간 09:00 ~ 23:00", contactCallBtn: "전화하기",
-    snsKakaoDesc: "QR 스캔 또는 검색", snsLineDesc: "QR 스캔하여 추가", snsWechatDesc: "QR 스캔하여 추가", snsWhatsappDesc: "탭하여 채팅", snsWhatsappTap: "탭하여 연결",
-    restTitle: "주변 맛집 가이드", restBody: "명동·충무로 주변의 엄선된 맛집을 안내해 드립니다.\n상호 · 대표메뉴 · 영업시간 · 가격대를 확인하세요.", restBtn: "🍜 맛집 가이드 보기",
-    reviewTitle: "소중한 리뷰 남겨주세요", reviewMsg: "좋은 리뷰 하나가 직원들에게 큰 힘이 됩니다 🙏\n즐거운 숙박이 되셨다면 짧은 한마디라도 남겨주세요.\n예약하신 사이트에 리뷰를 남겨주시면 감사합니다.",
+    locTitle: "찾아오시는 길", locAddrLabel: "주소",
+    locAddrValue: "서울특별시 중구 퇴계로37길 22 (충무로4가)",
+    locSubway: "🚇 지하철 충무로역 도보 2분",
+    ciEyebrow: "Check-in / Check-out", ciTitle: "체크인 · 체크아웃",
+    ciInLabel: "체크인", ciInNote: "16:00 이후", ciOutLabel: "체크아웃", ciOutNote: "11:00 이전",
+    contactTitle: "연락처",
+    contactPhoneLabel: "비상 연락처",
+    contactHours: "운영시간 09:00 ~ 23:00",
+    contactCallBtn: "전화하기",
+    emergencyBadge: "🚨 비상연락 전용",
+    inquiryNotice: "💬 일반 문의는 <strong>예약하신 사이트 메시지</strong>로 보내주세요<br><span style='font-size:11px;color:#999;'>Airbnb · Booking.com · Agoda · Trip.com</span>",
+    snsKakaoDesc: "QR 스캔 또는 검색", snsLineDesc: "QR 스캔하여 추가",
+    snsWechatDesc: "QR 스캔하여 추가", snsWhatsappDesc: "탭하여 채팅", snsWhatsappTap: "탭하여 연결",
+    restTitle: "주변 맛집 가이드",
+    restBody: "명동·충무로 주변의 엄선된 맛집을 안내해 드립니다.\n상호 · 대표메뉴 · 영업시간 · 가격대를 확인하세요.",
+    restBtn: "🍜 맛집 가이드 보기",
+    reviewTitle: "소중한 리뷰 남겨주세요",
+    reviewMsg: "좋은 리뷰 하나가 직원들에게 큰 힘이 됩니다 🙏\n즐거운 숙박이 되셨다면 짧은 한마디라도 남겨주세요.\n예약하신 사이트에 리뷰를 남겨주시면 감사합니다.",
     giftText: "이 작은 선물은 CF호텔을 찾아주신\n소중한 손님께 드리는 감사의 마음입니다.\n또 뵐 수 있기를 기대합니다 ✨",
   },
   en: {
-    hdrAddress: "Chungmuro, Jung-gu, Seoul",
+    hdrAddress: "22, Toegye-ro 37-gil, Jung-gu, Seoul",
     welcome: "Thank you for choosing CF Hotel.\nWe hope your stay is warm and memorable.",
-    locTitle: "How to Find Us", locAddrLabel: "Address", locAddrValue: "Chungmuro, Jung-gu, Seoul", locSubway: "🚇 2 min walk from Chungmuro Station",
-    ciEyebrow: "Check-in / Check-out", ciTitle: "Check-in · Check-out", ciInLabel: "Check-in", ciInNote: "From 16:00", ciOutLabel: "Check-out", ciOutNote: "By 11:00",
-    contactTitle: "Contact Us", contactPhoneLabel: "Front Desk", contactHours: "Hours: 09:00 ~ 23:00", contactCallBtn: "Call Now",
-    snsKakaoDesc: "Scan QR or search ID", snsLineDesc: "Scan QR to add", snsWechatDesc: "Scan QR to add", snsWhatsappDesc: "Tap to chat", snsWhatsappTap: "Tap to connect",
-    restTitle: "Nearby Restaurants", restBody: "Discover our curated list of restaurants\naround Myeongdong & Chungmuro.", restBtn: "🍜 View Restaurant Guide",
-    reviewTitle: "Leave Us a Review", reviewMsg: "Your kind words mean the world to our team 🙏\nIf you enjoyed your stay, please leave a short review\non the platform you booked through.",
+    locTitle: "How to Find Us", locAddrLabel: "Address",
+    locAddrValue: "22, Toegye-ro 37-gil, Jung-gu, Seoul (Chungmuro 4-ga)",
+    locSubway: "🚇 2 min walk from Chungmuro Station",
+    ciEyebrow: "Check-in / Check-out", ciTitle: "Check-in · Check-out",
+    ciInLabel: "Check-in", ciInNote: "From 16:00", ciOutLabel: "Check-out", ciOutNote: "By 11:00",
+    contactTitle: "Contact Us",
+    contactPhoneLabel: "Emergency Contact",
+    contactHours: "Hours: 09:00 ~ 23:00",
+    contactCallBtn: "Call Now",
+    emergencyBadge: "🚨 Emergency Only",
+    inquiryNotice: "💬 For general inquiries, please <strong>message us on your booking platform</strong><br><span style='font-size:11px;color:#999;'>Airbnb · Booking.com · Agoda · Trip.com</span>",
+    snsKakaoDesc: "Scan QR or search ID", snsLineDesc: "Scan QR to add",
+    snsWechatDesc: "Scan QR to add", snsWhatsappDesc: "Tap to chat", snsWhatsappTap: "Tap to connect",
+    restTitle: "Nearby Restaurants",
+    restBody: "Discover our curated list of restaurants\naround Myeongdong & Chungmuro.",
+    restBtn: "🍜 View Restaurant Guide",
+    reviewTitle: "Leave Us a Review",
+    reviewMsg: "Your kind words mean the world to our team 🙏\nIf you enjoyed your stay, please leave a short review\non the platform you booked through.",
     giftText: "This small gift is our way of saying\nthank you for visiting CF Hotel.\nWe look forward to welcoming you again ✨",
   },
   ja: {
-    hdrAddress: "ソウル市中区忠武路",
+    hdrAddress: "ソウル市中区退渓路37길 22",
     welcome: "CFホテルをお選びいただき、誠にありがとうございます。\n快適なご滞在となりますよう願っております。",
-    locTitle: "アクセス", locAddrLabel: "住所", locAddrValue: "ソウル市中区忠武路", locSubway: "🚇 地下鉄忠武路駅から徒歩2分",
-    ciEyebrow: "チェックイン / アウト", ciTitle: "チェックイン・アウト", ciInLabel: "チェックイン", ciInNote: "16:00以降", ciOutLabel: "チェックアウト", ciOutNote: "11:00まで",
-    contactTitle: "お問い合わせ", contactPhoneLabel: "フロント", contactHours: "営業時間 09:00〜23:00", contactCallBtn: "電話する",
-    snsKakaoDesc: "QRスキャンまたは検索", snsLineDesc: "QRスキャンで追加", snsWechatDesc: "QRスキャンで追加", snsWhatsappDesc: "タップしてチャット", snsWhatsappTap: "タップして接続",
-    restTitle: "周辺グルメガイド", restBody: "明洞・忠武路エリアのおすすめレストランをご案内します。\n店名・看板メニュー・営業時間・価格帯をご確認ください。", restBtn: "🍜 グルメガイドを見る",
-    reviewTitle: "クチコミをお願いします", reviewMsg: "温かいクチコミがスタッフの大きな励みになります 🙏\nご滞在を楽しんでいただけましたら、\nご予約されたサイトにクチコミをお寄せください。",
+    locTitle: "アクセス", locAddrLabel: "住所",
+    locAddrValue: "ソウル市中区退渓路37길 22（忠武路4가）",
+    locSubway: "🚇 地下鉄忠武路駅から徒歩2分",
+    ciEyebrow: "チェックイン / アウト", ciTitle: "チェックイン・アウト",
+    ciInLabel: "チェックイン", ciInNote: "16:00以降", ciOutLabel: "チェックアウト", ciOutNote: "11:00まで",
+    contactTitle: "お問い合わせ",
+    contactPhoneLabel: "緊急連絡先",
+    contactHours: "営業時間 09:00〜23:00",
+    contactCallBtn: "電話する",
+    emergencyBadge: "🚨 緊急専用",
+    inquiryNotice: "💬 一般のお問い合わせは<strong>ご予約サイトのメッセージ</strong>でお願いします<br><span style='font-size:11px;color:#999;'>Airbnb · Booking.com · Agoda · Trip.com</span>",
+    snsKakaoDesc: "QRスキャンまたは検索", snsLineDesc: "QRスキャンで追加",
+    snsWechatDesc: "QRスキャンで追加", snsWhatsappDesc: "タップしてチャット", snsWhatsappTap: "タップして接続",
+    restTitle: "周辺グルメガイド",
+    restBody: "明洞・忠武路エリアのおすすめレストランをご案内します。\n店名・看板メニュー・営業時間・価格帯をご確認ください。",
+    restBtn: "🍜 グルメガイドを見る",
+    reviewTitle: "クチコミをお願いします",
+    reviewMsg: "温かいクチコミがスタッフの大きな励みになります 🙏\nご滞在を楽しんでいただけましたら、\nご予約されたサイトにクチコミをお寄せください。",
     giftText: "この小さなプレゼントは、\nご来館いただいた感謝の気持ちです。\nまたのお越しをお待ちしております ✨",
   },
   zh: {
-    hdrAddress: "首尔市中区忠武路",
+    hdrAddress: "首尔市中区退溪路37길 22",
     welcome: "感谢您选择CF酒店。\n希望您在这里度过愉快、舒适的时光。",
-    locTitle: "交通指南", locAddrLabel: "地址", locAddrValue: "首尔市中区忠武路", locSubway: "🚇 地铁忠武路站步行2分钟",
-    ciEyebrow: "入住 / 退房", ciTitle: "入住 · 退房", ciInLabel: "入住", ciInNote: "16:00以后", ciOutLabel: "退房", ciOutNote: "11:00以前",
-    contactTitle: "联系我们", contactPhoneLabel: "前台服务", contactHours: "服务时间 09:00〜23:00", contactCallBtn: "拨打电话",
-    snsKakaoDesc: "扫描二维码或搜索", snsLineDesc: "扫码添加好友", snsWechatDesc: "扫码添加好友", snsWhatsappDesc: "点击聊天", snsWhatsappTap: "点击连接",
-    restTitle: "周边餐厅推荐", restBody: "为您推荐明洞·忠武路周边精选餐厅。\n查看店名、招牌菜、营业时间及价格。", restBtn: "🍜 查看餐厅指南",
-    reviewTitle: "请留下您的评价", reviewMsg: "您的好评是对我们最大的鼓励和礼物 🙏\n如果您对此次入住感到满意，\n请在您预订的平台上留下好评。",
+    locTitle: "交通指南", locAddrLabel: "地址",
+    locAddrValue: "首尔市中区退溪路37길 22（忠武路4街）",
+    locSubway: "🚇 地铁忠武路站步行2分钟",
+    ciEyebrow: "入住 / 退房", ciTitle: "入住 · 退房",
+    ciInLabel: "入住", ciInNote: "16:00以后", ciOutLabel: "退房", ciOutNote: "11:00以前",
+    contactTitle: "联系我们",
+    contactPhoneLabel: "紧急联系",
+    contactHours: "服务时间 09:00〜23:00",
+    contactCallBtn: "拨打电话",
+    emergencyBadge: "🚨 仅限紧急",
+    inquiryNotice: "💬 一般咨询请通过<strong>预订平台发送消息</strong><br><span style='font-size:11px;color:#999;'>Airbnb · Booking.com · Agoda · Trip.com</span>",
+    snsKakaoDesc: "扫描二维码或搜索", snsLineDesc: "扫码添加好友",
+    snsWechatDesc: "扫码添加好友", snsWhatsappDesc: "点击聊天", snsWhatsappTap: "点击连接",
+    restTitle: "周边餐厅推荐",
+    restBody: "为您推荐明洞·忠武路周边精选餐厅。\n查看店名、招牌菜、营业时间及价格。",
+    restBtn: "🍜 查看餐厅指南",
+    reviewTitle: "请留下您的评价",
+    reviewMsg: "您的好评是对我们最大的鼓励和礼物 🙏\n如果您对此次入住感到满意，\n请在您预订的平台上留下好评。",
     giftText: "这份小礼物代表着\nCF酒店对您惠顾的深深感谢。\n期待您再次光临 ✨",
   }
 };
@@ -319,6 +571,7 @@ function selectLang(lang) {
   const t = LANG[lang];
   document.getElementById('lang-screen').style.display = 'none';
   document.getElementById('main-page').style.display = 'block';
+
   document.getElementById('hdr-address').textContent = t.hdrAddress;
   document.getElementById('welcome-text').textContent = t.welcome;
   document.getElementById('loc-title').textContent = t.locTitle;
@@ -346,7 +599,108 @@ function selectLang(lang) {
   document.getElementById('review-title').textContent = t.reviewTitle;
   document.getElementById('review-msg').textContent = t.reviewMsg;
   document.getElementById('gift-text').textContent = t.giftText;
+
+  // 비상연락 배지 - 모든 배지 업데이트
+  document.querySelectorAll('[id^="emergency-badge"]').forEach(el => {
+    el.textContent = t.emergencyBadge;
+  });
+
+  // 일반문의 안내박스
+  const noticeEl = document.getElementById('inquiry-notice-text');
+  if (noticeEl) noticeEl.innerHTML = t.inquiryNotice;
+
+  // Accordion multilingual texts
+  const accTexts = {
+    ko: {
+      hotelInfoTitle:'호텔 이용 안내', accAmenityTitle:'객실 내 비치 시설',
+      accAc:'에어컨', accHeat:'난방(중앙 제어)', accFridge:'냉장고', accDryer:'헤어드라이어', accKettle:'전기포트',
+      accInfoTitle:'이용 안내', pwLobbyLabel:'로비 입구 비밀번호',
+      accDrinkTitle:'1F 음료', accDrinkDesc:'냉장고 음료 자유 이용 · 부족 시 카운터 문의',
+      accLuggageTitle:'짐 보관', accLuggageDesc:'체크인 전·체크아웃 후 보관 가능',
+      accLateTitle:'체크아웃 연장', accLateDesc:'최대 13:00까지 가능 · 시간당 10,000원',
+      accRentalTitle:'무료 대여', accRentalDesc:'변환기 · 콘센트 어댑터 · 우산 (수량 한정)',
+      accCleanTitle:'객실 청소 서비스',
+      accCleanDesc1:'청소는 <strong>요청 시에만</strong> 제공됩니다.<br><span class="il-sub">원하실 경우 미리 또는 메시지로 알려주세요</span>',
+      accCleanDesc2:'당일 청소 요청은 <strong>오전 10시 전</strong>까지<br><span class="il-sub">청소 시간: 오전 11시 ~ 오후 4시</span>',
+      accCleanDesc3:'비품 및 수건은 언제든지 요청 가능',
+    },
+    en: {
+      hotelInfoTitle:'Hotel Information', accAmenityTitle:'Room Amenities',
+      accAc:'Air Conditioning', accHeat:'Heating (Central)', accFridge:'Refrigerator', accDryer:'Hair Dryer', accKettle:'Electric Kettle',
+      accInfoTitle:'General Info', pwLobbyLabel:'Lobby Door Code',
+      accDrinkTitle:'1F Drinks', accDrinkDesc:'Free to use · Ask front desk if needed',
+      accLuggageTitle:'Luggage Storage', accLuggageDesc:'Available before check-in & after check-out',
+      accLateTitle:'Late Check-out', accLateDesc:'Until 13:00 max · ₩10,000/hour',
+      accRentalTitle:'Free Rental', accRentalDesc:'Adapters · Converters · Umbrella (limited)',
+      accCleanTitle:'Room Cleaning',
+      accCleanDesc1:'Cleaning is provided <strong>on request only</strong>.<br><span class="il-sub">Please let us know in advance or via message</span>',
+      accCleanDesc2:'Same-day request by <strong>10:00 AM</strong><br><span class="il-sub">Cleaning hours: 11:00 AM – 4:00 PM</span>',
+      accCleanDesc3:'Toiletries & towels available anytime on request',
+    },
+    ja: {
+      hotelInfoTitle:'ホテルご利用案内', accAmenityTitle:'客室設備',
+      accAc:'エアコン', accHeat:'暖房（中央制御）', accFridge:'冷蔵庫', accDryer:'ドライヤー', accKettle:'電気ケトル',
+      accInfoTitle:'ご利用案内', pwLobbyLabel:'ロビー入口 暗証番号',
+      accDrinkTitle:'1F ドリンク', accDrinkDesc:'冷蔵庫のドリンク自由利用 · 不足時はフロントへ',
+      accLuggageTitle:'荷物預かり', accLuggageDesc:'チェックイン前・チェックアウト後も預かり可能',
+      accLateTitle:'レイトチェックアウト', accLateDesc:'最大13:00まで · 1時間₩10,000',
+      accRentalTitle:'無料レンタル', accRentalDesc:'変換アダプター · 傘（数量限定）',
+      accCleanTitle:'お部屋の清掃',
+      accCleanDesc1:'清掃は<strong>ご要望時のみ</strong>対応します。<br><span class="il-sub">事前またはメッセージでお知らせください</span>',
+      accCleanDesc2:'当日清掃は<strong>午前10時まで</strong>にご依頼を<br><span class="il-sub">清掃時間: 午前11時〜午後4時</span>',
+      accCleanDesc3:'アメニティ・タオルはいつでもご要望可能',
+    },
+    zh: {
+      hotelInfoTitle:'酒店使用指南', accAmenityTitle:'客房设施',
+      accAc:'空调', accHeat:'暖气（中央控制）', accFridge:'冰箱', accDryer:'吹风机', accKettle:'电热水壶',
+      accInfoTitle:'使用说明', pwLobbyLabel:'大堂入口密码',
+      accDrinkTitle:'1F饮品', accDrinkDesc:'冰箱饮品自由取用 · 不足时请联系前台',
+      accLuggageTitle:'行李寄存', accLuggageDesc:'入住前及退房后均可寄存',
+      accLateTitle:'延迟退房', accLateDesc:'最晚至13:00 · 每小时₩10,000',
+      accRentalTitle:'免费借用', accRentalDesc:'转换插头 · 适配器 · 雨伞（数量有限）',
+      accCleanTitle:'客房清洁服务',
+      accCleanDesc1:'清洁服务<strong>仅限预约</strong>提供。<br><span class="il-sub">请提前或通过消息告知我们</span>',
+      accCleanDesc2:'当天清洁请在<strong>上午10点前</strong>告知<br><span class="il-sub">清洁时间: 上午11点 ~ 下午4点</span>',
+      accCleanDesc3:'备品及毛巾随时可申请',
+    }
+  };
+  const a = accTexts[lang];
+  if (a) {
+    const setT = (id, v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+    const setH = (id, v) => { const el=document.getElementById(id); if(el) el.innerHTML=v; };
+    setT('hotel-info-title', a.hotelInfoTitle);
+    setT('acc-amenity-title', a.accAmenityTitle);
+    setT('acc-ac', a.accAc); setT('acc-heat', a.accHeat); setT('acc-fridge', a.accFridge);
+    setT('acc-dryer', a.accDryer); setT('acc-kettle', a.accKettle);
+    setT('acc-info-title', a.accInfoTitle);
+    setT('pw-lobby-label', a.pwLobbyLabel);
+    setT('acc-drink-title', a.accDrinkTitle); setT('acc-drink-desc', a.accDrinkDesc);
+    setT('acc-luggage-title', a.accLuggageTitle); setT('acc-luggage-desc', a.accLuggageDesc);
+    setT('acc-late-title', a.accLateTitle); setT('acc-late-desc', a.accLateDesc);
+    setT('acc-rental-title', a.accRentalTitle); setT('acc-rental-desc', a.accRentalDesc);
+    setT('acc-clean-title', a.accCleanTitle);
+    setH('acc-clean-desc1', a.accCleanDesc1);
+    setH('acc-clean-desc2', a.accCleanDesc2);
+    setH('acc-clean-desc3', a.accCleanDesc3);
+  }
+
 }
+
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  // 모두 닫기
+  document.querySelectorAll('.accordion-btn').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  // 클릭한 것 열기 (이미 열려있으면 그냥 닫힘)
+  if (!isOpen) {
+    btn.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
 </script>
 </body>
 </html>
