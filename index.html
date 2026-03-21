@@ -4,24 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CF Hotel</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Josefin+Sans:wght@300;400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:    #282823;
-  --bg2:   #32302a;
-  --bg3:   #3c3930;
-  --bdr:   #4a4535;
-  --bdr2:  #3a3628;
-  --gold:  #E9BE5F;
-  --gold2: #F5D070;
-  --gdim:  #B8922A;
-  --tx:    #F5E8B6;
-  --tx2:   #C8A84A;
-  --tx3:   #8a7840;
+  --bg:    #E8E0D0;
+  --bg2:   #D8CEBC;
+  --bg3:   #C8BCA8;
+  --bdr:   #B0A080;
+  --bdr2:  #C0B090;
+  --gold:  #7a5c28;
+  --gold2: #9a7838;
+  --gdim:  #9a8060;
+  --tx:    #2C1F10;
+  --tx2:   #5a4028;
+  --tx3:   #8a7050;
+  --brown: #3D2B1A;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--tx); font-family: "Noto Sans KR", sans-serif; font-weight: 300; }
+body { background: var(--bg); color: var(--tx); font-family: "Noto Sans KR", sans-serif; font-weight: 300; min-height: 100vh; }
 
 /* ─── LANG SCREEN ─── */
 #ls {
@@ -29,229 +29,144 @@ body { background: var(--bg); color: var(--tx); font-family: "Noto Sans KR", san
   justify-content: center; min-height: 100vh;
   background: var(--bg); position: relative; padding: 40px 24px;
 }
-#ls .corner {
-  position: absolute; width: 26px; height: 26px;
-  border-color: var(--gold); border-style: solid; opacity: 0.6;
-}
+#ls .corner { position: absolute; width: 26px; height: 26px; border-color: var(--gold); border-style: solid; opacity: 0.6; }
 #ls .tl { top: 22px; left: 22px; border-width: 2px 0 0 2px; }
 #ls .tr { top: 22px; right: 22px; border-width: 2px 2px 0 0; }
 #ls .bl { bottom: 22px; left: 22px; border-width: 0 0 2px 2px; }
 #ls .br { bottom: 22px; right: 22px; border-width: 0 2px 2px 0; }
 .ls-ey { font-size: 10px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
-.ls-h1 { font-family: "Cinzel", serif; font-size: clamp(38px, 9vw, 54px); font-weight: 400; letter-spacing: 0.18em; color: var(--tx); margin-bottom: 8px; }
-.ls-sub { font-size: 11px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 44px; }
+.ls-h1 { font-family: "Cinzel", serif; font-size: clamp(36px,9vw,52px); font-weight: 400; letter-spacing: 0.18em; color: var(--brown); margin-bottom: 8px; }
+.ls-sub { font-size: 11px; letter-spacing: 0.3em; color: var(--gdim); text-transform: uppercase; margin-bottom: 44px; }
 .ls-div { width: 1px; height: 36px; background: var(--bdr); margin: 0 auto 26px; }
-.ls-lbl { font-size: 10px; letter-spacing: 0.3em; color: var(--gdim); text-transform: uppercase; margin-bottom: 18px; }
+.ls-lbl { font-size: 10px; letter-spacing: 0.3em; color: var(--tx3); text-transform: uppercase; margin-bottom: 18px; }
 .ls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 300px; }
-.ls-btn {
-  padding: 15px 10px; background: var(--bg2); border: 1px solid var(--bdr2);
-  color: var(--tx); font-size: 14px; font-family: "Noto Sans KR", sans-serif;
-  cursor: pointer; text-align: center; transition: border-color 0.2s;
-}
-.ls-btn:hover { border-color: var(--gold); }
+.ls-btn { padding: 15px 10px; background: var(--bg2); border: 1px solid var(--bdr2); color: var(--tx); font-size: 14px; font-family: "Noto Sans KR", sans-serif; cursor: pointer; transition: all 0.2s; }
+.ls-btn:hover { background: var(--bg3); border-color: var(--gold); }
 
 /* ─── MAIN ─── */
 #mp { display: none; }
 
-/* header */
 .hdr {
   text-align: center; padding: 52px 24px 40px;
-  background: linear-gradient(180deg, #1e1c18 0%, var(--bg) 100%);
+  background: var(--brown);
   position: relative;
 }
-.hdr::after {
-  content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.hdr-ey { font-size: 10px; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
-.hdr-h1 { font-family: "Cinzel", serif; font-size: clamp(36px, 8vw, 58px); font-weight: 400; letter-spacing: 0.16em; color: var(--tx); margin-bottom: 10px; }
-.hdr-addr { font-size: 12px; color: var(--tx3); letter-spacing: 0.06em; }
+.hdr::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.hdr-ey { font-size: 10px; letter-spacing: 0.4em; color: #C8B090; text-transform: uppercase; margin-bottom: 14px; }
+.hdr-h1 { font-family: "Cinzel", serif; font-size: clamp(34px,8vw,54px); font-weight: 400; letter-spacing: 0.16em; color: #F5EED8; margin-bottom: 10px; }
+.hdr-addr { font-size: 12px; color: #A89070; letter-spacing: 0.06em; }
 
-/* layout */
 .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
 .sec { padding: 40px 0; border-bottom: 1px solid var(--bdr2); }
 .sec:last-child { border-bottom: none; }
 .sh { text-align: center; margin-bottom: 22px; }
 .sh-ey { font-size: 10px; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
-.sh-h2 { font-family: "Cinzel", serif; font-size: 21px; font-weight: 400; letter-spacing: 0.08em; color: var(--tx); }
+.sh-h2 { font-family: "Cinzel", serif; font-size: 20px; font-weight: 400; letter-spacing: 0.08em; color: var(--brown); }
 
-/* card */
-.card {
-  background: var(--bg2); border: 1px solid var(--bdr2);
-  padding: 20px; position: relative; overflow: hidden;
-}
-.card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
+.card { background: var(--bg2); border: 1px solid var(--bdr2); padding: 20px; position: relative; overflow: hidden; }
+.card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
-/* welcome */
 .wtxt { text-align: center; font-size: 14px; line-height: 2; color: var(--tx2); }
 
-/* location */
 .loc-lbl { font-size: 10px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; text-align: center; }
-.loc-val { font-size: 16px; font-weight: 500; color: var(--tx); text-align: center; margin-bottom: 4px; }
+.loc-val { font-size: 15px; font-weight: 500; color: var(--brown); text-align: center; margin-bottom: 4px; }
 .loc-sub { font-size: 13px; color: var(--tx3); text-align: center; margin-bottom: 18px; }
 .map-btns { display: flex; flex-direction: column; gap: 8px; }
-.mbtn {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px; font-size: 13px; font-family: "Noto Sans KR", sans-serif;
-  text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s;
-}
+.mbtn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; font-size: 13px; font-family: "Noto Sans KR", sans-serif; text-decoration: none; cursor: pointer; transition: opacity 0.2s; font-weight: 500; }
 .mbtn:hover { opacity: 0.85; }
-.mbtn-g { background: #595C56; color: #F5E8B6; border: 1px solid #6a6d68; font-weight: 500; }
+.mbtn-g { background: #595C56; color: #F5EED8; border: 1px solid #6a6d68; }
 .mbtn-k { background: #FEE500; color: #3C1E1E; }
 .mbtn-n { background: #03C75A; color: #fff; }
 
-/* checkin */
 .ci-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.ci-box {
-  background: var(--bg2); border: 1px solid var(--bdr2);
-  padding: 22px 16px; text-align: center; position: relative; overflow: hidden;
-}
-.ci-box::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
+.ci-box { background: var(--bg2); border: 1px solid var(--bdr2); padding: 22px 16px; text-align: center; position: relative; overflow: hidden; }
+.ci-box::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 .ci-lbl { font-size: 10px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-.ci-time { font-family: "Cinzel", serif; font-size: 34px; font-weight: 400; color: var(--tx); line-height: 1; }
+.ci-time { font-family: "Cinzel", serif; font-size: 34px; font-weight: 400; color: var(--brown); line-height: 1; }
 .ci-note { font-size: 11px; color: var(--tx3); margin-top: 6px; }
 
-/* inquiry */
-.inq {
-  background: var(--bg2); border: 1px solid var(--bdr2); border-left: 2px solid var(--gold);
-  padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: var(--tx2); line-height: 1.8;
-}
-.inq strong { color: var(--gold); }
+.inq { background: var(--bg3); border: 1px solid var(--bdr); border-left: 3px solid var(--gold); padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: var(--tx2); line-height: 1.8; }
+.inq strong { color: var(--gold2); }
 .inq small { font-size: 11px; color: var(--tx3); }
 
-/* phone */
-.ph-card {
-  background: var(--bg2); border: 1px solid var(--bdr2);
-  padding: 18px 20px; margin-bottom: 8px;
-  display: flex; align-items: center; justify-content: space-between;
-  position: relative; overflow: hidden;
-}
-.ph-card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.ph-lbl { font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
-.ph-num { font-family: "Cinzel", serif; font-size: 20px; color: var(--tx); letter-spacing: 0.04em; }
-.ph-hrs { font-size: 11px; color: var(--tx3); margin-top: 3px; }
-.ph-btn {
-  padding: 11px 20px; text-decoration: none; font-weight: 700;
-  font-family: "Josefin Sans", sans-serif; font-size: 11px; letter-spacing: 0.2em;
-  color: #080808; background: linear-gradient(135deg, var(--gold), var(--gold2));
-  white-space: nowrap;
-}
+.ph-card { background: var(--brown); border: 1px solid #5a3a20; padding: 18px 20px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; }
+.ph-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #C8A860, transparent); }
+.ph-lbl { font-size: 10px; letter-spacing: 0.2em; color: #C8B090; text-transform: uppercase; margin-bottom: 5px; }
+.ph-num { font-family: "Cinzel", serif; font-size: 20px; color: #F5EED8; letter-spacing: 0.04em; }
+.ph-hrs { font-size: 11px; color: #9A8468; margin-top: 3px; }
+.ph-btn { padding: 11px 20px; text-decoration: none; font-weight: 700; font-family: "Josefin Sans", sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--brown); background: #C8B090; white-space: nowrap; }
 
-/* accordion */
 .acc { background: var(--bg2); border: 1px solid var(--bdr2); margin-bottom: 6px; }
-.acc-btn {
-  width: 100%; padding: 15px 18px; background: var(--bg2); border: none;
-  display: flex; align-items: center; justify-content: space-between;
-  font-family: "Noto Sans KR", sans-serif; font-size: 14px; font-weight: 500;
-  color: var(--tx); cursor: pointer; text-align: left; transition: background 0.15s;
-}
+.acc-btn { width: 100%; padding: 15px 18px; background: var(--bg2); border: none; display: flex; align-items: center; justify-content: space-between; font-family: "Noto Sans KR", sans-serif; font-size: 14px; font-weight: 500; color: var(--tx); cursor: pointer; transition: background 0.15s; }
 .acc-btn:hover { background: var(--bg3); }
 .acc-al { display: flex; align-items: center; gap: 10px; }
 .acc-icon { font-size: 20px; }
 .acc-arr { font-size: 11px; color: var(--gdim); transition: transform 0.2s; }
 .acc-btn.open .acc-arr { transform: rotate(180deg); }
-.acc-body { display: none; padding: 0 18px 18px; border-top: 1px solid var(--bdr2); }
+.acc-body { display: none; padding: 0 18px 18px; border-top: 1px solid var(--bdr2); background: var(--bg); }
 .acc-body.open { display: block; }
 
-/* amenity grid */
-.am-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-top: 22px; }
+.am-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-top: 14px; }
 .am-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--tx2); }
 
-/* info list */
 .il { padding-top: 14px; display: flex; flex-direction: column; gap: 12px; }
 .il-row { display: flex; gap: 10px; align-items: flex-start; }
 .il-ico { font-size: 15px; min-width: 20px; margin-top: 1px; }
 .il-txt { font-size: 13px; color: var(--tx2); line-height: 1.7; }
-.il-txt strong { color: var(--tx); font-weight: 500; }
+.il-txt strong { color: var(--brown); font-weight: 500; }
 .il-sub { font-size: 11px; color: var(--tx3); }
 
-/* pw box */
-.pw-box { background: var(--bg3); padding: 12px 16px; margin-top: 6px; }
+.pw-box { background: var(--bg2); padding: 12px 16px; margin-top: 6px; border: 1px solid var(--bdr2); }
 .pw-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--bdr2); font-size: 13px; }
 .pw-row:last-child { border-bottom: none; }
 .pw-k { color: var(--tx3); }
-.pw-v { font-family: "Cinzel", serif; font-size: 15px; color: var(--gold); }
+.pw-v { font-family: "Cinzel", serif; font-size: 15px; color: var(--gold2); font-weight: 600; }
 
-/* emergency badge */
-.ebadge { font-size: 10px; font-weight: 700; padding: 2px 8px; margin-left: 6px; }
-.acc-kakao .ebadge { background: rgba(0,0,0,0.15); color: #3C1E1E; border: 1px solid rgba(0,0,0,0.2); }
-.acc-line .ebadge { background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-.acc-wechat .ebadge { background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-.acc-wa .ebadge { background: rgba(0,0,0,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.ebadge { font-size: 10px; font-weight: 700; color: var(--gold2); background: var(--bg3); border: 1px solid var(--bdr); padding: 2px 8px; margin-left: 6px; }
 
-/* sns accordions */
 .acc-kakao .acc-btn { background: #FEE500; }
 .acc-kakao .acc-btn:hover { background: #f5db00; }
 .acc-kakao .acc-al, .acc-kakao .acc-al * { color: #3C1E1E !important; }
 .acc-kakao .acc-arr { color: #7a5500 !important; }
-.acc-kakao .acc-body { background: #fffde7; border-top-color: #e0c800; }
+.acc-kakao .acc-body { background: #fffde7; }
+.acc-kakao .ebadge { background: rgba(0,0,0,0.1); color: #3C1E1E; border-color: rgba(0,0,0,0.15); }
 .acc-line .acc-btn { background: #06C755; }
 .acc-line .acc-btn:hover { background: #05b84c; }
 .acc-line .acc-al, .acc-line .acc-al * { color: #fff !important; }
-.acc-line .acc-arr { color: rgba(255,255,255,0.6) !important; }
-.acc-line .acc-body { background: #e6f9ee; border-top-color: #05b84c; }
+.acc-line .acc-arr { color: rgba(255,255,255,0.7) !important; }
+.acc-line .acc-body { background: #e6f9ee; }
+.acc-line .ebadge { background: rgba(0,0,0,0.15); color: #fff; border-color: rgba(255,255,255,0.2); }
 .acc-wechat .acc-btn { background: #07C160; }
 .acc-wechat .acc-btn:hover { background: #06ab55; }
 .acc-wechat .acc-al, .acc-wechat .acc-al * { color: #fff !important; }
-.acc-wechat .acc-arr { color: rgba(255,255,255,0.6) !important; }
-.acc-wechat .acc-body { background: #e6f9ee; border-top-color: #06ab55; }
+.acc-wechat .acc-arr { color: rgba(255,255,255,0.7) !important; }
+.acc-wechat .acc-body { background: #e6f9ee; }
+.acc-wechat .ebadge { background: rgba(0,0,0,0.15); color: #fff; border-color: rgba(255,255,255,0.2); }
 .acc-wa .acc-btn { background: #25D366; }
 .acc-wa .acc-btn:hover { background: #1fbd59; }
 .acc-wa .acc-al, .acc-wa .acc-al * { color: #fff !important; }
-.acc-wa .acc-arr { color: rgba(255,255,255,0.6) !important; }
-.acc-wa .acc-body { background: #e6f9ef; border-top-color: #1fbd59; }
+.acc-wa .acc-arr { color: rgba(255,255,255,0.7) !important; }
+.acc-wa .acc-body { background: #e6f9ef; }
+.acc-wa .ebadge { background: rgba(0,0,0,0.15); color: #fff; border-color: rgba(255,255,255,0.2); }
 .qr-wrap { text-align: center; padding-top: 12px; }
 .qr-sub { font-size: 12px; color: #555; margin-bottom: 10px; }
 .qr-img { background: #fff; padding: 6px; display: inline-block; border-radius: 4px; }
 .qr-img img { width: 150px; height: 150px; display: block; }
-.wa-btn {
-  display: inline-block; background: #25D366; color: #fff;
-  padding: 12px 32px; text-decoration: none; font-size: 14px; font-weight: 600;
-  margin-top: 10px; border-radius: 4px;
-}
+.wa-btn { display: inline-block; background: #25D366; color: #fff; padding: 12px 32px; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 10px; border-radius: 4px; }
 
-/* ibox accordion info */
-.acc-info .acc-body { background: var(--bg); }
-
-/* review */
-.rev-msg { text-align: center; font-size: 14px; color: var(--tx2); line-height: 2; margin-bottom: 16px; padding-top: 22px; }
-.stars { text-align: center; font-size: 26px; color: var(--gold); letter-spacing: 4px; margin-bottom: 24px; }
+.rev-msg { text-align: center; font-size: 14px; color: var(--tx2); line-height: 2; padding-top: 22px; margin-bottom: 16px; }
+.stars { text-align: center; font-size: 26px; color: var(--gold2); letter-spacing: 4px; margin-bottom: 0; padding-bottom: 16px; }
 .plat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.plat-btn {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 14px; background: var(--bg2); border: 1px solid var(--bdr2);
-  text-decoration: none; color: var(--tx); font-size: 13px;
-  font-family: "Noto Sans KR", sans-serif; transition: border-color 0.2s;
-}
-.plat-btn:hover { border-color: var(--gold); }
+.plat-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; background: var(--bg2); border: 1px solid #E9BE5F; text-decoration: none; color: var(--tx); font-size: 13px; font-family: "Noto Sans KR", sans-serif; transition: all 0.2s; }
+.plat-btn:hover { background: var(--bg3); }
 
-/* gift */
 .gift { text-align: center; padding: 32px 0; }
 .gift-em { font-size: 40px; margin-bottom: 14px; }
 .gift-txt { font-size: 14px; color: var(--tx2); line-height: 2; }
 
-/* footer */
-footer {
-  text-align: center; padding: 28px 20px;
-  border-top: 1px solid var(--bdr2);
-  font-family: "Josefin Sans", sans-serif; font-size: 10px;
-  letter-spacing: 0.2em; color: var(--tx3); position: relative;
-}
-footer::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
+footer { text-align: center; padding: 28px 20px; border-top: 1px solid var(--bdr2); font-family: "Josefin Sans", sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--tx3); position: relative; background: var(--bg2); }
+footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
-/* mobile */
 @media (max-width: 480px) {
   .map-btns { flex-direction: column; }
   .mbtn { width: 100%; }
@@ -260,12 +175,9 @@ footer::before {
 </head>
 <body>
 
-<!-- LANGUAGE SCREEN -->
 <div id="ls">
-  <div class="corner tl"></div>
-  <div class="corner tr"></div>
-  <div class="corner bl"></div>
-  <div class="corner br"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
   <p class="ls-ey">Seoul &middot; Chungmuro</p>
   <h1 class="ls-h1">CF HOTEL</h1>
   <p class="ls-sub">충무로 &middot; 서울</p>
@@ -279,30 +191,20 @@ footer::before {
   </div>
 </div>
 
-<!-- MAIN PAGE -->
 <div id="mp">
-
   <div class="hdr">
     <p class="hdr-ey">Seoul &middot; Chungmuro</p>
     <h1 class="hdr-h1">CF HOTEL</h1>
     <p class="hdr-addr" id="t-addr"></p>
   </div>
-
   <div class="wrap">
 
-    <!-- 환영 -->
     <section class="sec">
-      <div class="card">
-        <p class="wtxt" id="t-welcome"></p>
-      </div>
+      <div class="card"><p class="wtxt" id="t-welcome"></p></div>
     </section>
 
-    <!-- 위치 -->
     <section class="sec">
-      <div class="sh">
-        <p class="sh-ey">Location</p>
-        <h2 class="sh-h2" id="t-loc-title"></h2>
-      </div>
+      <div class="sh"><p class="sh-ey">Location</p><h2 class="sh-h2" id="t-loc-title"></h2></div>
       <div class="card">
         <p class="loc-lbl" id="t-loc-lbl"></p>
         <p class="loc-val" id="t-loc-val"></p>
@@ -315,13 +217,8 @@ footer::before {
       </div>
     </section>
 
-    <!-- 이용안내 -->
     <section class="sec">
-      <div class="sh">
-        <p class="sh-ey">Hotel Info</p>
-        <h2 class="sh-h2" id="t-info-title"></h2>
-      </div>
-
+      <div class="sh"><p class="sh-ey">Hotel Info</p><h2 class="sh-h2" id="t-info-title"></h2></div>
       <div class="acc">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">🏨</span><span id="t-a1">객실 내 비치 시설</span></span>
@@ -332,23 +229,21 @@ footer::before {
             <div class="am-item">📶 Wi-Fi</div>
             <div class="am-item">📺 TV</div>
             <div class="am-item">❄️ <span id="t-ac">에어컨</span></div>
-            <div class="am-item">🔥 <span id="t-heat">난방(중앙)</span></div>
+            <div class="am-item">🔥 <span id="t-heat">난방</span></div>
             <div class="am-item">🧊 <span id="t-fridge">냉장고</span></div>
             <div class="am-item">💨 <span id="t-dryer">헤어드라이어</span></div>
             <div class="am-item">🔌 <span id="t-kettle">전기포트</span></div>
           </div>
         </div>
       </div>
-
-      <div class="acc acc-info">
+      <div class="acc">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">ℹ️</span><span id="t-a2">이용 안내</span></span>
           <span class="acc-arr">▼</span>
         </button>
         <div class="acc-body">
           <div class="il">
-            <div class="il-row">
-              <span class="il-ico">🔐</span>
+            <div class="il-row"><span class="il-ico">🔐</span>
               <div class="il-txt">
                 <div class="pw-box">
                   <div class="pw-row"><span class="pw-k" id="t-pw-lbl">로비 입구</span><span class="pw-v">0993#</span></div>
@@ -363,52 +258,32 @@ footer::before {
           </div>
         </div>
       </div>
-
-      <div class="acc acc-info">
+      <div class="acc">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">🧹</span><span id="t-a3">객실 청소 서비스</span></span>
           <span class="acc-arr">▼</span>
         </button>
         <div class="acc-body">
           <div class="il">
-            <div class="il-row"><span class="il-ico">📋</span><div class="il-txt" id="t-c1">청소는 <strong>요청 시에만</strong> 제공됩니다.<br><span class="il-sub">원하실 경우 미리 또는 메시지로 알려주세요</span></div></div>
+            <div class="il-row"><span class="il-ico">📋</span><div class="il-txt" id="t-c1">청소는 <strong>요청 시에만</strong> 제공됩니다.</div></div>
             <div class="il-row"><span class="il-ico">🕐</span><div class="il-txt" id="t-c2">당일 청소 요청은 <strong>오전 10시 전</strong>까지<br><span class="il-sub">청소 시간: 오전 11시 ~ 오후 4시</span></div></div>
             <div class="il-row"><span class="il-ico">🛁</span><div class="il-txt" id="t-c3">비품 및 수건은 언제든지 요청 가능</div></div>
           </div>
         </div>
       </div>
-
     </section>
 
-    <!-- 체크인 -->
     <section class="sec">
-      <div class="sh">
-        <p class="sh-ey" id="t-ci-ey">Check-in / Check-out</p>
-        <h2 class="sh-h2" id="t-ci-title">체크인 · 체크아웃</h2>
-      </div>
+      <div class="sh"><p class="sh-ey" id="t-ci-ey">Check-in / Check-out</p><h2 class="sh-h2" id="t-ci-title">체크인 · 체크아웃</h2></div>
       <div class="ci-grid">
-        <div class="ci-box">
-          <div class="ci-lbl" id="t-ci-in">체크인</div>
-          <div class="ci-time">16:00</div>
-          <div class="ci-note" id="t-ci-in-n">16:00 이후</div>
-        </div>
-        <div class="ci-box">
-          <div class="ci-lbl" id="t-ci-out">체크아웃</div>
-          <div class="ci-time">11:00</div>
-          <div class="ci-note" id="t-ci-out-n">11:00 이전</div>
-        </div>
+        <div class="ci-box"><div class="ci-lbl" id="t-ci-in">체크인</div><div class="ci-time">16:00</div><div class="ci-note" id="t-ci-in-n">16:00 이후</div></div>
+        <div class="ci-box"><div class="ci-lbl" id="t-ci-out">체크아웃</div><div class="ci-time">11:00</div><div class="ci-note" id="t-ci-out-n">11:00 이전</div></div>
       </div>
     </section>
 
-    <!-- 연락처 -->
     <section class="sec">
-      <div class="sh">
-        <p class="sh-ey">Contact</p>
-        <h2 class="sh-h2" id="t-ct-title">연락처</h2>
-      </div>
-      <div class="inq">
-        <p id="t-inq">💬 일반 문의는 <strong>예약하신 사이트 메시지</strong>로 보내주세요<br><small>Airbnb · Booking.com · Agoda · Trip.com</small></p>
-      </div>
+      <div class="sh"><p class="sh-ey">Contact</p><h2 class="sh-h2" id="t-ct-title">연락처</h2></div>
+      <div class="inq"><p id="t-inq">💬 일반 문의는 <strong>예약하신 사이트 메시지</strong>로 보내주세요<br><small>Airbnb · Booking.com · Agoda · Trip.com</small></p></div>
       <div class="ph-card">
         <div>
           <p class="ph-lbl" id="t-ph-lbl">비상 연락처</p>
@@ -417,7 +292,6 @@ footer::before {
         </div>
         <a class="ph-btn" href="tel:01053798462" id="t-ph-btn">전화하기</a>
       </div>
-
       <div class="acc acc-kakao">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">💬</span><span>KakaoTalk</span><span class="ebadge" id="t-eb1">🚨 비상연락</span></span>
@@ -430,7 +304,6 @@ footer::before {
           </div>
         </div>
       </div>
-
       <div class="acc acc-line">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">💚</span><span>LINE</span><span class="ebadge" id="t-eb2">🚨 비상연락</span></span>
@@ -443,7 +316,6 @@ footer::before {
           </div>
         </div>
       </div>
-
       <div class="acc acc-wechat">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">🟢</span><span>WeChat</span><span class="ebadge" id="t-eb3">🚨 비상연락</span></span>
@@ -456,7 +328,6 @@ footer::before {
           </div>
         </div>
       </div>
-
       <div class="acc acc-wa">
         <button class="acc-btn" onclick="tog(this)">
           <span class="acc-al"><span class="acc-icon">📱</span><span>WhatsApp</span><span class="ebadge" id="t-eb4">🚨 비상연락</span></span>
@@ -471,27 +342,20 @@ footer::before {
       </div>
     </section>
 
-    <!-- 리뷰 -->
     <section class="sec">
-      <div class="sh">
-        <p class="sh-ey">Review</p>
-        <h2 class="sh-h2" id="t-rev-title">소중한 리뷰 남겨주세요</h2>
-      </div>
-      <div class="card" style="text-align:center; margin-bottom:20px; padding: 24px 20px;">
-        <div class="card" style="text-align:center; margin-bottom:20px; padding: 24px 20px;">
-          <p class="rev-msg" id="t-rev-msg">좋은 리뷰 하나가 직원들에게 큰 힘이 됩니다 🙏</p>
-          <div class="stars">★★★★★</div>
-        </div>
+      <div class="sh"><p class="sh-ey">Review</p><h2 class="sh-h2" id="t-rev-title">소중한 리뷰 남겨주세요</h2></div>
+      <div class="card" style="text-align:center; margin-bottom:20px; padding:24px 20px;">
+        <p class="rev-msg" id="t-rev-msg">좋은 리뷰 하나가 직원들에게 큰 힘이 됩니다 🙏</p>
+        <div class="stars">★★★★★</div>
       </div>
       <div class="plat-grid">
-        <a class="plat-btn" href="https://www.airbnb.co.kr" target="_blank" style="border-color:#E9BE5F;">✈️ Airbnb</a>
-        <a class="plat-btn" href="https://www.booking.com" target="_blank" style="border-color:#E9BE5F;">🏨 Booking.com</a>
-        <a class="plat-btn" href="https://www.agoda.com" target="_blank" style="border-color:#E9BE5F;">🌏 Agoda</a>
-        <a class="plat-btn" href="https://www.trip.com" target="_blank" style="border-color:#E9BE5F;">✈️ Trip.com</a>
+        <a class="plat-btn" href="https://www.airbnb.co.kr" target="_blank">✈️ Airbnb</a>
+        <a class="plat-btn" href="https://www.booking.com" target="_blank">🏨 Booking.com</a>
+        <a class="plat-btn" href="https://www.agoda.com" target="_blank">🌏 Agoda</a>
+        <a class="plat-btn" href="https://www.trip.com" target="_blank">✈️ Trip.com</a>
       </div>
     </section>
 
-    <!-- 선물 -->
     <section class="sec">
       <div class="gift">
         <div class="gift-em">🍪🍬</div>
@@ -505,156 +369,114 @@ footer::before {
 
 <script>
 var L = {
-  ko: {
+  ko:{
     addr:"서울특별시 중구 퇴계로37길 22",
     welcome:"CF호텔을 선택해 주셔서 진심으로 감사드립니다.\n편안하고 즐거운 시간이 되시길 바랍니다.",
-    locTitle:"찾아오시는 길", locLbl:"주소",
-    locVal:"서울특별시 중구 퇴계로37길 22 (충무로4가)",
-    locSub:"🚇 지하철 충무로역 도보 2분",
-    infoTitle:"호텔 이용 안내",
-    a1:"객실 내 비치 시설", ac:"에어컨", heat:"난방(중앙 제어)", fridge:"냉장고", dryer:"헤어드라이어", kettle:"전기포트",
-    a2:"이용 안내", pwLbl:"로비 입구 비밀번호",
-    drink:"1F 음료", drinkD:"냉장고 음료 자유 이용 · 부족 시 카운터 문의",
-    lug:"짐 보관", lugD:"체크인 전·체크아웃 후 보관 가능",
-    late:"체크아웃 연장", lateD:"최대 13:00까지 · 시간당 10,000원",
-    rent:"무료 대여", rentD:"변환기 · 어댑터 · 우산 (수량 한정)",
-    a3:"객실 청소 서비스",
+    locTitle:"찾아오시는 길", locLbl:"주소", locVal:"서울특별시 중구 퇴계로37길 22 (충무로4가)", locSub:"🚇 지하철 충무로역 도보 2분",
+    infoTitle:"호텔 이용 안내", a1:"객실 내 비치 시설", ac:"에어컨", heat:"난방(중앙 제어)", fridge:"냉장고", dryer:"헤어드라이어", kettle:"전기포트",
+    a2:"이용 안내", pwLbl:"로비 입구 비밀번호", drink:"1F 음료", drinkD:"냉장고 음료 자유 이용 · 부족 시 카운터 문의",
+    lug:"짐 보관", lugD:"체크인 전·체크아웃 후 보관 가능", late:"체크아웃 연장", lateD:"최대 13:00까지 · 시간당 10,000원",
+    rent:"무료 대여", rentD:"변환기 · 어댑터 · 우산 (수량 한정)", a3:"객실 청소 서비스",
     c1:"청소는 <strong>요청 시에만</strong> 제공됩니다.<br><span class=\"il-sub\">원하실 경우 미리 또는 메시지로 알려주세요</span>",
     c2:"당일 청소 요청은 <strong>오전 10시 전</strong>까지<br><span class=\"il-sub\">청소 시간: 오전 11시 ~ 오후 4시</span>",
     c3:"비품 및 수건은 언제든지 요청 가능",
-    ciEy:"Check-in / Check-out", ciTitle:"체크인 · 체크아웃",
-    ciIn:"체크인", ciInN:"16:00 이후", ciOut:"체크아웃", ciOutN:"11:00 이전",
-    ctTitle:"연락처",
-    inq:"💬 일반 문의는 <strong>예약하신 사이트 메시지</strong>로 보내주세요<br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
+    ciEy:"Check-in / Check-out", ciTitle:"체크인 · 체크아웃", ciIn:"체크인", ciInN:"16:00 이후", ciOut:"체크아웃", ciOutN:"11:00 이전",
+    ctTitle:"연락처", inq:"💬 일반 문의는 <strong>예약하신 사이트 메시지</strong>로 보내주세요<br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
     phLbl:"비상 연락처", phHrs:"운영시간 09:00 ~ 23:00", phBtn:"전화하기",
     eb:"🚨 비상연락", wa:"💬 탭하여 연결",
-    revTitle:"소중한 리뷰 남겨주세요",
-    revMsg:"좋은 리뷰 하나가 직원들에게 큰 힘이 됩니다 🙏\n즐거운 숙박이 되셨다면 짧은 한마디라도 남겨주세요.\n예약하신 사이트에 리뷰를 남겨주시면 감사합니다.",
+    revTitle:"소중한 리뷰 남겨주세요", revMsg:"좋은 리뷰 하나가 직원들에게 큰 힘이 됩니다 🙏\n즐거운 숙박이 되셨다면 짧은 한마디라도 남겨주세요.\n예약하신 사이트에 리뷰를 남겨주시면 감사합니다.",
     gift:"이 작은 선물은 CF호텔을 찾아주신\n소중한 손님께 드리는 감사의 마음입니다.\n또 뵐 수 있기를 기대합니다 ✨"
   },
-  en: {
+  en:{
     addr:"22, Toegye-ro 37-gil, Jung-gu, Seoul",
     welcome:"Thank you for choosing CF Hotel.\nWe hope your stay is warm and memorable.",
-    locTitle:"How to Find Us", locLbl:"Address",
-    locVal:"22, Toegye-ro 37-gil, Jung-gu, Seoul",
-    locSub:"🚇 2 min walk from Chungmuro Station",
-    infoTitle:"Hotel Information",
-    a1:"Room Amenities", ac:"Air Conditioning", heat:"Heating (Central)", fridge:"Refrigerator", dryer:"Hair Dryer", kettle:"Electric Kettle",
-    a2:"General Info", pwLbl:"Lobby Door Code",
-    drink:"1F Drinks", drinkD:"Free to use · Ask front desk if needed",
-    lug:"Luggage Storage", lugD:"Available before check-in & after check-out",
-    late:"Late Check-out", lateD:"Until 13:00 max · 10,000 KRW/hour",
-    rent:"Free Rental", rentD:"Adapters · Converters · Umbrella (limited)",
-    a3:"Room Cleaning",
+    locTitle:"How to Find Us", locLbl:"Address", locVal:"22, Toegye-ro 37-gil, Jung-gu, Seoul", locSub:"🚇 2 min walk from Chungmuro Station",
+    infoTitle:"Hotel Information", a1:"Room Amenities", ac:"Air Conditioning", heat:"Heating (Central)", fridge:"Refrigerator", dryer:"Hair Dryer", kettle:"Electric Kettle",
+    a2:"General Info", pwLbl:"Lobby Door Code", drink:"1F Drinks", drinkD:"Free to use · Ask front desk if needed",
+    lug:"Luggage Storage", lugD:"Available before check-in & after check-out", late:"Late Check-out", lateD:"Until 13:00 max · 10,000 KRW/hour",
+    rent:"Free Rental", rentD:"Adapters · Converters · Umbrella (limited)", a3:"Room Cleaning",
     c1:"Cleaning is provided <strong>on request only</strong>.<br><span class=\"il-sub\">Please let us know in advance or via message</span>",
     c2:"Same-day request by <strong>10:00 AM</strong><br><span class=\"il-sub\">Cleaning hours: 11:00 AM – 4:00 PM</span>",
     c3:"Toiletries & towels available anytime on request",
-    ciEy:"Check-in / Check-out", ciTitle:"Check-in · Check-out",
-    ciIn:"Check-in", ciInN:"From 16:00", ciOut:"Check-out", ciOutN:"By 11:00",
-    ctTitle:"Contact Us",
-    inq:"💬 For general inquiries, please <strong>message us on your booking platform</strong><br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
+    ciEy:"Check-in / Check-out", ciTitle:"Check-in · Check-out", ciIn:"Check-in", ciInN:"From 16:00", ciOut:"Check-out", ciOutN:"By 11:00",
+    ctTitle:"Contact Us", inq:"💬 For general inquiries, please <strong>message us on your booking platform</strong><br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
     phLbl:"Emergency Contact", phHrs:"Hours: 09:00 ~ 23:00", phBtn:"Call Now",
     eb:"🚨 Emergency", wa:"💬 Tap to connect",
-    revTitle:"Leave Us a Review",
-    revMsg:"Your kind words mean the world to our team 🙏\nIf you enjoyed your stay, please leave a short review\non the platform you booked through.",
+    revTitle:"Leave Us a Review", revMsg:"Your kind words mean the world to our team 🙏\nIf you enjoyed your stay, please leave a short review\non the platform you booked through.",
     gift:"This small gift is our way of saying\nthank you for visiting CF Hotel.\nWe look forward to welcoming you again ✨"
   },
-  ja: {
+  ja:{
     addr:"ソウル市中区退渓路37길 22",
     welcome:"CFホテルをお選びいただき、誠にありがとうございます。\n快適なご滞在となりますよう願っております。",
-    locTitle:"アクセス", locLbl:"住所",
-    locVal:"ソウル市中区退渓路37길 22（忠武路4가）",
-    locSub:"🚇 地下鉄忠武路駅から徒歩2分",
-    infoTitle:"ホテルご利用案内",
-    a1:"客室設備", ac:"エアコン", heat:"暖房（中央制御）", fridge:"冷蔵庫", dryer:"ドライヤー", kettle:"電気ケトル",
-    a2:"ご利用案内", pwLbl:"ロビー入口 暗証番号",
-    drink:"1F ドリンク", drinkD:"冷蔵庫のドリンク自由利用 · 不足時はフロントへ",
-    lug:"荷物預かり", lugD:"チェックイン前・チェックアウト後も可能",
-    late:"レイトチェックアウト", lateD:"最大13:00まで · 1時間10,000ウォン",
-    rent:"無料レンタル", rentD:"変換アダプター · 傘（数量限定）",
-    a3:"お部屋の清掃",
+    locTitle:"アクセス", locLbl:"住所", locVal:"ソウル市中区退渓路37길 22（忠武路4가）", locSub:"🚇 地下鉄忠武路駅から徒歩2分",
+    infoTitle:"ホテルご利用案内", a1:"客室設備", ac:"エアコン", heat:"暖房（中央制御）", fridge:"冷蔵庫", dryer:"ドライヤー", kettle:"電気ケトル",
+    a2:"ご利用案内", pwLbl:"ロビー入口 暗証番号", drink:"1F ドリンク", drinkD:"冷蔵庫のドリンク自由利用 · 不足時はフロントへ",
+    lug:"荷物預かり", lugD:"チェックイン前・チェックアウト後も可能", late:"レイトチェックアウト", lateD:"最大13:00まで · 1時間10,000ウォン",
+    rent:"無料レンタル", rentD:"変換アダプター · 傘（数量限定）", a3:"お部屋の清掃",
     c1:"清掃は<strong>ご要望時のみ</strong>対応します。<br><span class=\"il-sub\">事前またはメッセージでお知らせください</span>",
     c2:"当日清掃は<strong>午前10時まで</strong>にご依頼を<br><span class=\"il-sub\">清掃時間: 午前11時〜午後4時</span>",
     c3:"アメニティ・タオルはいつでもご要望可能",
-    ciEy:"チェックイン / アウト", ciTitle:"チェックイン・アウト",
-    ciIn:"チェックイン", ciInN:"16:00以降", ciOut:"チェックアウト", ciOutN:"11:00まで",
-    ctTitle:"お問い合わせ",
-    inq:"💬 一般のお問い合わせは<strong>ご予約サイトのメッセージ</strong>でお願いします<br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
+    ciEy:"チェックイン / アウト", ciTitle:"チェックイン・アウト", ciIn:"チェックイン", ciInN:"16:00以降", ciOut:"チェックアウト", ciOutN:"11:00まで",
+    ctTitle:"お問い合わせ", inq:"💬 一般のお問い合わせは<strong>ご予約サイトのメッセージ</strong>でお願いします<br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
     phLbl:"緊急連絡先", phHrs:"営業時間 09:00〜23:00", phBtn:"電話する",
     eb:"🚨 緊急専用", wa:"💬 タップして接続",
-    revTitle:"クチコミをお願いします",
-    revMsg:"温かいクチコミがスタッフの大きな励みになります 🙏\nご滞在を楽しんでいただけましたら、\nご予約されたサイトにクチコミをお寄せください。",
+    revTitle:"クチコミをお願いします", revMsg:"温かいクチコミがスタッフの大きな励みになります 🙏\nご滞在を楽しんでいただけましたら、\nご予約されたサイトにクチコミをお寄せください。",
     gift:"この小さなプレゼントは、\nご来館いただいた感謝の気持ちです。\nまたのお越しをお待ちしております ✨"
   },
-  zh: {
+  zh:{
     addr:"首尔市中区退溪路37길 22",
     welcome:"感谢您选择CF酒店。\n希望您在这里度过愉快、舒适的时光。",
-    locTitle:"交通指南", locLbl:"地址",
-    locVal:"首尔市中区退溪路37길 22（忠武路4街）",
-    locSub:"🚇 地铁忠武路站步行2分钟",
-    infoTitle:"酒店使用指南",
-    a1:"客房设施", ac:"空调", heat:"暖气（中央控制）", fridge:"冰箱", dryer:"吹风机", kettle:"电热水壶",
-    a2:"使用说明", pwLbl:"大堂入口密码",
-    drink:"1F饮品", drinkD:"冰箱饮品自由取用 · 不足时请联系前台",
-    lug:"行李寄存", lugD:"入住前及退房后均可寄存",
-    late:"延迟退房", lateD:"最晚至13:00 · 每小时10,000韩元",
-    rent:"免费借用", rentD:"转换插头 · 适配器 · 雨伞（数量有限）",
-    a3:"客房清洁服务",
+    locTitle:"交通指南", locLbl:"地址", locVal:"首尔市中区退溪路37길 22（忠武路4街）", locSub:"🚇 地铁忠武路站步行2分钟",
+    infoTitle:"酒店使用指南", a1:"客房设施", ac:"空调", heat:"暖气（中央控制）", fridge:"冰箱", dryer:"吹风机", kettle:"电热水壶",
+    a2:"使用说明", pwLbl:"大堂入口密码", drink:"1F饮品", drinkD:"冰箱饮品自由取用 · 不足时请联系前台",
+    lug:"行李寄存", lugD:"入住前及退房后均可寄存", late:"延迟退房", lateD:"最晚至13:00 · 每小时10,000韩元",
+    rent:"免费借用", rentD:"转换插头 · 适配器 · 雨伞（数量有限）", a3:"客房清洁服务",
     c1:"清洁服务<strong>仅限预约</strong>提供。<br><span class=\"il-sub\">请提前或通过消息告知我们</span>",
     c2:"当天清洁请在<strong>上午10点前</strong>告知<br><span class=\"il-sub\">清洁时间: 上午11点 ~ 下午4点</span>",
     c3:"备品及毛巾随时可申请",
-    ciEy:"入住 / 退房", ciTitle:"入住 · 退房",
-    ciIn:"入住", ciInN:"16:00以后", ciOut:"退房", ciOutN:"11:00以前",
-    ctTitle:"联系我们",
-    inq:"💬 一般咨询请通过<strong>预订平台发送消息</strong><br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
+    ciEy:"入住 / 退房", ciTitle:"入住 · 退房", ciIn:"入住", ciInN:"16:00以后", ciOut:"退房", ciOutN:"11:00以前",
+    ctTitle:"联系我们", inq:"💬 一般咨询请通过<strong>预订平台发送消息</strong><br><small>Airbnb · Booking.com · Agoda · Trip.com</small>",
     phLbl:"紧急联系", phHrs:"服务时间 09:00〜23:00", phBtn:"拨打电话",
     eb:"🚨 仅限紧急", wa:"💬 点击连接",
-    revTitle:"请留下您的评价",
-    revMsg:"您的好评是对我们最大的鼓励和礼物 🙏\n如果您对此次入住感到满意，\n请在您预订的平台上留下好评。",
+    revTitle:"请留下您的评价", revMsg:"您的好评是对我们最大的鼓励和礼物 🙏\n如果您对此次入住感到满意，\n请在您预订的平台上留下好评。",
     gift:"这份小礼物代表着\nCF酒店对您惠顾的深深感谢。\n期待您再次光临 ✨"
   }
 };
 
-function T(id, v) { var e = document.getElementById(id); if (e) e.textContent = v; }
-function H(id, v) { var e = document.getElementById(id); if (e) e.innerHTML = v; }
-function NL(id) { var e = document.getElementById(id); if (e) e.style.whiteSpace = "pre-line"; }
+function T(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+function H(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
+function NL(id){var e=document.getElementById(id);if(e)e.style.whiteSpace="pre-line";}
 
-function go(lang) {
-  document.getElementById("ls").style.display = "none";
-  document.getElementById("mp").style.display = "block";
-  var t = L[lang];
-  T("t-addr", t.addr);
-  T("t-welcome", t.welcome); NL("t-welcome");
-  T("t-loc-title", t.locTitle); T("t-loc-lbl", t.locLbl);
-  T("t-loc-val", t.locVal); T("t-loc-sub", t.locSub);
-  T("t-info-title", t.infoTitle);
-  T("t-a1", t.a1); T("t-ac", t.ac); T("t-heat", t.heat);
-  T("t-fridge", t.fridge); T("t-dryer", t.dryer); T("t-kettle", t.kettle);
-  T("t-a2", t.a2); T("t-pw-lbl", t.pwLbl);
-  T("t-drink", t.drink); T("t-drink-d", t.drinkD);
-  T("t-lug", t.lug); T("t-lug-d", t.lugD);
-  T("t-late", t.late); T("t-late-d", t.lateD);
-  T("t-rent", t.rent); T("t-rent-d", t.rentD);
-  T("t-a3", t.a3);
-  H("t-c1", t.c1); H("t-c2", t.c2); T("t-c3", t.c3);
-  T("t-ci-ey", t.ciEy); T("t-ci-title", t.ciTitle);
-  T("t-ci-in", t.ciIn); T("t-ci-in-n", t.ciInN);
-  T("t-ci-out", t.ciOut); T("t-ci-out-n", t.ciOutN);
-  T("t-ct-title", t.ctTitle);
-  H("t-inq", t.inq);
-  T("t-ph-lbl", t.phLbl); T("t-ph-hrs", t.phHrs); T("t-ph-btn", t.phBtn);
-  T("t-eb1", t.eb); T("t-eb2", t.eb); T("t-eb3", t.eb); T("t-eb4", t.eb);
-  T("t-wa", t.wa);
-  T("t-rev-title", t.revTitle);
-  T("t-rev-msg", t.revMsg); NL("t-rev-msg");
-  T("t-gift", t.gift); NL("t-gift");
+function go(lang){
+  document.getElementById("ls").style.display="none";
+  document.getElementById("mp").style.display="block";
+  var t=L[lang];
+  T("t-addr",t.addr);
+  T("t-welcome",t.welcome); NL("t-welcome");
+  T("t-loc-title",t.locTitle); T("t-loc-lbl",t.locLbl); T("t-loc-val",t.locVal); T("t-loc-sub",t.locSub);
+  T("t-info-title",t.infoTitle); T("t-a1",t.a1); T("t-ac",t.ac); T("t-heat",t.heat);
+  T("t-fridge",t.fridge); T("t-dryer",t.dryer); T("t-kettle",t.kettle);
+  T("t-a2",t.a2); T("t-pw-lbl",t.pwLbl);
+  T("t-drink",t.drink); T("t-drink-d",t.drinkD);
+  T("t-lug",t.lug); T("t-lug-d",t.lugD);
+  T("t-late",t.late); T("t-late-d",t.lateD);
+  T("t-rent",t.rent); T("t-rent-d",t.rentD);
+  T("t-a3",t.a3); H("t-c1",t.c1); H("t-c2",t.c2); T("t-c3",t.c3);
+  T("t-ci-ey",t.ciEy); T("t-ci-title",t.ciTitle);
+  T("t-ci-in",t.ciIn); T("t-ci-in-n",t.ciInN); T("t-ci-out",t.ciOut); T("t-ci-out-n",t.ciOutN);
+  T("t-ct-title",t.ctTitle); H("t-inq",t.inq);
+  T("t-ph-lbl",t.phLbl); T("t-ph-hrs",t.phHrs); T("t-ph-btn",t.phBtn);
+  T("t-eb1",t.eb); T("t-eb2",t.eb); T("t-eb3",t.eb); T("t-eb4",t.eb);
+  T("t-wa",t.wa);
+  T("t-rev-title",t.revTitle); T("t-rev-msg",t.revMsg); NL("t-rev-msg");
+  T("t-gift",t.gift); NL("t-gift");
 }
 
-function tog(btn) {
-  var body = btn.nextElementSibling;
-  var open = btn.classList.contains("open");
-  btn.classList.toggle("open", !open);
-  body.classList.toggle("open", !open);
+function tog(btn){
+  var body=btn.nextElementSibling;
+  var open=btn.classList.contains("open");
+  btn.classList.toggle("open",!open);
+  body.classList.toggle("open",!open);
 }
 </script>
 </body>
