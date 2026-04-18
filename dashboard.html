@@ -12,8 +12,8 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
 .hdr h1{font-size:17px;font-weight:600}.hdr .sub{font-size:11px;color:#B8A878;margin-top:3px}
 .badge{background:#B8A878;color:#3D2B1A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;white-space:nowrap}
 .wrap{max-width:980px;margin:0 auto;padding:24px 20px}
-.tabs{display:flex;border-bottom:1px solid #D3D1C7;background:#fff;border-radius:8px 8px 0 0;overflow:hidden;margin-bottom:24px}
-.tab{padding:12px 20px;font-size:13px;cursor:pointer;border:none;background:transparent;color:#888780;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs{display:flex;border-bottom:1px solid #D3D1C7;background:#fff;border-radius:8px 8px 0 0;overflow-x:auto;margin-bottom:24px}
+.tab{padding:12px 18px;font-size:13px;cursor:pointer;border:none;background:transparent;color:#888780;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap;flex-shrink:0}
 .tab:hover{background:#F7F3EE;color:#3D2B1A}.tab.on{color:#3D2B1A;border-bottom-color:#B8A878;font-weight:700}
 .pnl{display:none}.pnl.on{display:block}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-bottom:22px}
@@ -26,16 +26,41 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
 .chtw{position:relative;width:100%}
 .note{background:#FFF9EC;border-left:3px solid #B8A878;padding:10px 14px;border-radius:0 6px 6px 0;font-size:12px;color:#5F5E5A;margin-top:14px;line-height:1.6}
 .note.red{background:#FFF0F0;border-left-color:#E24B4A}
+.note.green{background:#F0FFF4;border-left-color:#1D9E75}
 .htmap{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
 .htmap th{padding:6px 3px;text-align:center;font-weight:700;font-size:10px;color:#5F5E5A;background:#F7F3EE;border:1px solid #EDE5D8}
 .htmap td{padding:5px 2px;text-align:center;border:1px solid #EDE5D8;font-size:10px}
-.slider-row{display:flex;align-items:center;gap:14px;padding:12px 0;flex-wrap:wrap}
+.slider-row{display:flex;align-items:center;gap:14px;padding:8px 0;flex-wrap:wrap}
 .slider-row label{font-size:12px;color:#5F5E5A;white-space:nowrap}
-.slider-row input[type=range]{flex:1;min-width:160px;accent-color:#B8A878}
+.slider-row input[type=range]{flex:1;min-width:140px;accent-color:#B8A878}
 .slider-val{font-size:15px;font-weight:700;color:#3D2B1A;min-width:52px;text-align:right}
 .scen-btns{display:flex;gap:8px;margin-bottom:14px}
 .scen-btn{padding:6px 14px;border:1px solid #D3D1C7;border-radius:6px;background:#fff;font-size:12px;cursor:pointer;color:#5F5E5A}
 .scen-btn.on{background:#3D2B1A;color:#fff;border-color:#3D2B1A;font-weight:700}
+/* Budget tab */
+.b-settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:660px){.b-settings-grid{grid-template-columns:1fr}}
+.b-section-label{font-size:11px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.b-room-table{width:100%;border-collapse:collapse;font-size:12px}
+.b-room-table th{background:#F7F3EE;padding:6px 8px;text-align:left;font-size:10px;font-weight:700;color:#888780;border-bottom:2px solid #EDE5D8;white-space:nowrap}
+.b-room-table td{padding:6px 8px;border-bottom:1px solid #EDE5D8;vertical-align:middle}
+.b-room-table tr:last-child td{border-bottom:none}
+.b-input{width:90px;padding:5px 7px;border:1px solid #D3D1C7;border-radius:5px;font-size:12px;text-align:right;color:#3D2B1A;background:#fff}
+.b-input:focus{outline:none;border-color:#B8A878;box-shadow:0 0 0 2px rgba(184,168,120,.15)}
+.b-mono-table{width:100%;border-collapse:collapse;font-size:12px}
+.b-mono-table th{background:#3D2B1A;color:#EDE5D8;padding:8px 10px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.b-mono-table th:first-child{text-align:left;border-radius:4px 0 0 0}
+.b-mono-table th:last-child{border-radius:0 4px 0 0}
+.b-mono-table td{padding:7px 10px;border-bottom:1px solid #EDE5D8;text-align:center;font-size:12px}
+.b-mono-table td:first-child{text-align:left;font-weight:700;color:#3D2B1A}
+.b-mono-table tr:last-child td{border-bottom:none}
+.b-mono-table tr:hover td{background:#FFF9EC}
+.strat-btn{padding:6px 14px;border:1px solid #D3D1C7;border-radius:6px;background:#fff;font-size:12px;cursor:pointer;color:#5F5E5A;white-space:nowrap}
+.strat-btn.on{background:#3D2B1A;color:#fff;border-color:#3D2B1A;font-weight:700}
+.pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.pill-hi{background:#DBEAFE;color:#1E3A8A}
+.pill-lo{background:#FEE2E2;color:#B91C1C}
+.pill-ok{background:#DCFCE7;color:#15803D}
 .footer{text-align:center;padding:18px;color:#B4B2A9;font-size:11px}
 </style>
 </head>
@@ -52,8 +77,10 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
     <button class="tab" onclick="sw('season')">계절성 지수</button>
     <button class="tab" onclick="sw('country')">국가별 현황</button>
     <button class="tab" onclick="sw('west')">서양권 상세</button>
+    <button class="tab" onclick="sw('budget')">💰 수익 예산</button>
   </div>
 
+  <!-- ① 연간 추이 -->
   <div id="annual" class="pnl on">
     <div class="kpis">
       <div class="kpi"><div class="kl">2025년 확정</div><div class="kv">1,894만</div><div class="ks">역대 최고치</div></div>
@@ -74,6 +101,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
     </div>
   </div>
 
+  <!-- ② 2026 예측 -->
   <div id="proj" class="pnl">
     <div class="card">
       <div class="ctitle">2026년 월별 예측 시나리오</div>
@@ -102,6 +130,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
     </div>
   </div>
 
+  <!-- ③ 계절성 지수 -->
   <div id="season" class="pnl">
     <div class="card">
       <div class="ctitle">계절성 지수 히트맵 — 연도 × 월 (평균=100)</div>
@@ -120,6 +149,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
     </div>
   </div>
 
+  <!-- ④ 국가별 현황 -->
   <div id="country" class="pnl">
     <div class="card">
       <div class="ctitle">주요 국가별 연간 방문객 추이 (만 명)</div>
@@ -133,6 +163,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
     </div>
   </div>
 
+  <!-- ⑤ 서양권 상세 -->
   <div id="west" class="pnl">
     <div class="kpis">
       <div class="kpi"><div class="kl">미국 2025</div><div class="kv">148.3만</div><div class="ks">→ 2026 예측 173.5만</div></div>
@@ -150,13 +181,150 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;backgrou
       <div class="chtw" style="height:220px"><canvas id="c6"></canvas></div>
     </div>
   </div>
+
+  <!-- ⑥ 수익 예산 모델 (NEW) -->
+  <div id="budget" class="pnl">
+    <!-- KPI 상단 -->
+    <div class="kpis">
+      <div class="kpi">
+        <div class="kl">연간 예상 매출</div>
+        <div class="kv" id="b_kv_rev">—</div>
+        <div class="ks" id="b_kv_rev_sub">계산 전</div>
+      </div>
+      <div class="kpi">
+        <div class="kl">연평균 가동률</div>
+        <div class="kv" id="b_kv_occ">—</div>
+        <div class="ks">목표 가동률 기준</div>
+      </div>
+      <div class="kpi">
+        <div class="kl">RevPAR (1박)</div>
+        <div class="kv" id="b_kv_revpar">—</div>
+        <div class="ks">전체 객실 기준 객실당</div>
+      </div>
+      <div class="kpi">
+        <div class="kl">최고 매출 예상월</div>
+        <div class="kv" id="b_kv_peak">—</div>
+        <div class="ks" id="b_kv_peak_sub">계절 지수 연동</div>
+      </div>
+    </div>
+
+    <!-- 설정 카드 -->
+    <div class="card">
+      <div class="ctitle">모델 설정</div>
+      <div class="b-settings-grid">
+        <!-- 왼쪽: 슬라이더 + 전략 -->
+        <div>
+          <div class="b-section-label">기준 가동률 (연평균)</div>
+          <div class="slider-row" style="margin-bottom:16px">
+            <label>목표 점유율</label>
+            <input type="range" id="b_occ_slider" min="40" max="95" value="70" step="1"
+              oninput="bOcc=+this.value; document.getElementById('b_occ_val').textContent=this.value+'%'; updateBudget()">
+            <span class="slider-val" id="b_occ_val">70%</span>
+          </div>
+          <div class="b-section-label">요금 전략</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px">
+            <button class="strat-btn" onclick="setBStrat('agg',this)">적극 변동</button>
+            <button class="strat-btn on" onclick="setBStrat('mod',this)">완만 변동</button>
+            <button class="strat-btn" onclick="setBStrat('fix',this)">고정 요금</button>
+          </div>
+          <div class="note" style="margin-top:10px;font-size:11px" id="b_strat_note">
+            완만 변동: 계절 지수에 비례해 ±20% 범위 내 자동 조정. 비수기 가격 급락 방지.
+          </div>
+        </div>
+        <!-- 오른쪽: 객실 타입별 기준가 -->
+        <div>
+          <div class="b-section-label">객실 타입별 기준가 (원)</div>
+          <table class="b-room-table">
+            <thead>
+              <tr>
+                <th>타입</th>
+                <th style="text-align:center">실 수</th>
+                <th style="text-align:right">평일</th>
+                <th style="text-align:right">주말(금·토)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>TW</b> 트윈</td><td style="text-align:center">14</td>
+                <td><input class="b-input" id="b_tw_wd" type="number" value="90000" step="1000" oninput="updateBudget()"></td>
+                <td><input class="b-input" id="b_tw_we" type="number" value="145000" step="1000" oninput="updateBudget()"></td>
+              </tr>
+              <tr>
+                <td><b>TP</b> 트리플</td><td style="text-align:center">13</td>
+                <td><input class="b-input" id="b_tp_wd" type="number" value="100000" step="1000" oninput="updateBudget()"></td>
+                <td><input class="b-input" id="b_tp_we" type="number" value="160000" step="1000" oninput="updateBudget()"></td>
+              </tr>
+              <tr>
+                <td><b>D</b> 더블</td><td style="text-align:center">4</td>
+                <td><input class="b-input" id="b_d_wd" type="number" value="87000" step="1000" oninput="updateBudget()"></td>
+                <td><input class="b-input" id="b_d_we" type="number" value="130000" step="1000" oninput="updateBudget()"></td>
+              </tr>
+              <tr>
+                <td><b>E·TW</b> 이코노미</td><td style="text-align:center">1</td>
+                <td><input class="b-input" id="b_etw_wd" type="number" value="65000" step="1000" oninput="updateBudget()"></td>
+                <td><input class="b-input" id="b_etw_we" type="number" value="95000" step="1000" oninput="updateBudget()"></td>
+              </tr>
+              <tr>
+                <td><b>E·D</b> 이코노미</td><td style="text-align:center">1</td>
+                <td><input class="b-input" id="b_ed_wd" type="number" value="60000" step="1000" oninput="updateBudget()"></td>
+                <td><input class="b-input" id="b_ed_we" type="number" value="90000" step="1000" oninput="updateBudget()"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 월별 수익 예측 차트 -->
+    <div class="card">
+      <div class="ctitle">월별 예상 매출 (만원)</div>
+      <div class="leg">
+        <span><b style="background:#1E3A8A"></b>성수기 (지수 110+)</span>
+        <span><b style="background:#3B82F6"></b>평균 (95–110)</span>
+        <span><b style="background:#93C5FD"></b>비수기 (95 미만)</span>
+      </div>
+      <div class="chtw" style="height:280px"><canvas id="c_rev"></canvas></div>
+    </div>
+
+    <!-- 월별 상세 테이블 -->
+    <div class="card">
+      <div class="ctitle">월별 예측 상세 — 계절 연동 가격 모델</div>
+      <div style="overflow-x:auto">
+        <table class="b-mono-table">
+          <thead>
+            <tr>
+              <th>월</th>
+              <th>계절 지수</th>
+              <th>요금 배율</th>
+              <th>예상 가동률</th>
+              <th>평균 권장요금 (1박)</th>
+              <th>예상 매출</th>
+            </tr>
+          </thead>
+          <tbody id="b_tbody"></tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-top:14px">
+        평균 권장요금은 객실 타입·평일/주말 혼합 블렌디드 요금 기준. 주말 비중 2/7 적용.<br>
+        예상 매출 = 33실 × 가동률 × 블렌디드 요금 × 해당월 일수.
+      </div>
+    </div>
+
+    <!-- 인사이트 -->
+    <div class="card" id="b_insight_card">
+      <div class="ctitle">가격 전략 인사이트</div>
+      <div id="b_insights" style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:#3D2B1A;line-height:1.7"></div>
+    </div>
+  </div>
 </div>
 <div class="footer">출처: 한국관광공사 방한 외래관광객 통계 · 2026년 3–12월은 예측치 · CF 호텔 내부 참고용</div>
 
 <script>
+/* ─────────── 공통 데이터 ─────────── */
 const ALLYEARS=[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
 const VALID=[2015,2016,2017,2018,2019,2023,2024,2025];
 const MONTHS=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+const DAYS26=[31,28,31,30,31,30,31,31,30,31,30,31];
 const annual_fixed=[1323.2,1724.2,1333.6,1534.7,1750.3,251.9,96.7,319.8,1103.2,1636.9,1893.7];
 const m25=[1117243,1138408,1614596,1707113,1629387,1619220,1733199,1820332,1702813,1739020,1596939,1518292];
 const act26=[1265658,1431472];
@@ -175,7 +343,6 @@ const seIdx={
   2024:[64.6,75.5,109.4,107.2,104.0,103.9,103.3,114.6,107.3,117.3,99.8,93.2],
   2025:[70.8,72.1,102.3,108.2,103.3,102.6,109.8,115.4,107.9,110.2,101.2,96.2]
 };
-// 국가별 (중복제거 후 정확한 값, 만 명)
 const countries={
   '중국':  [598.4,806.8,416.9,479.0,602.3,null,null,null,201.9,460.3,548.1,null],
   '일본':  [183.8,229.8,231.1,294.9,327.2,null,null,null,231.6,322.4,365.3,null],
@@ -216,15 +383,15 @@ buildHeatmap();
 
 const gc='rgba(0,0,0,.06)',tc='#5F5E5A';
 const barColors=ALLYEARS.map(y=>y===2026?'#B8A878':y>=2023?'#185FA5':y<=2022&&y>=2020?'#F09595':'#B5D4F4');
+const avg=avgSeason();
 
 const c1=new Chart(document.getElementById('c1'),{type:'bar',data:{labels:ALLYEARS,datasets:[{label:'방문객',data:annualData(curRate),backgroundColor:barColors,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.y.toLocaleString()}만 명${c.dataIndex===11?' (예측)':''}`}}},scales:{y:{grid:{color:gc},ticks:{color:tc,font:{size:11},callback:v=>v+'만'}},x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}}}}});
 
-const avg=avgSeason();
 new Chart(document.getElementById('c2'),{type:'bar',data:{labels:MONTHS,datasets:[{label:'평균지수',data:avg,backgroundColor:avg.map(v=>v>=110?'#1E3A8A':v>=95?'#3B82F6':'#93C5FD'),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`지수 ${c.parsed.y}`}}},scales:{y:{min:40,max:140,grid:{color:gc},ticks:{color:tc,font:{size:11}}},x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}}}}});
 
 const topKeys=['중국','일본','대만','미국','홍콩','필리핀','베트남'];
 makeLeg(document.getElementById('legC'),topKeys);
-function cWithProj(k,r){const b=[...countries[k]];b[11]=+(countries[k][10]*( 1+r)).toFixed(1);return b;}
+function cWithProj(k,r){const b=[...countries[k]];b[11]=+(countries[k][10]*(1+r)).toFixed(1);return b;}
 const c3=new Chart(document.getElementById('c3'),{type:'line',data:{labels:ALLYEARS,datasets:topKeys.map(k=>({label:k,data:cWithProj(k,curRate),borderColor:palette[k],backgroundColor:'transparent',borderWidth:2.5,borderDash:dashes[k],pointRadius:3,spanGaps:true}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.parsed.y!==null?c.parsed.y.toFixed(1)+'만':'없음')}}},scales:{y:{grid:{color:gc},ticks:{color:tc,font:{size:11},callback:v=>v+'만'}},x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}}}}});
 
 const all25=Object.keys(countries).sort((a,b)=>(countries[b][10]||0)-(countries[a][10]||0));
@@ -264,7 +431,176 @@ buildProjChart(curRate);
 
 function setScen(r){curRate=r;document.querySelectorAll('.scen-btn').forEach(b=>b.classList.toggle('on',b.textContent.includes((r*100).toFixed(0))));updateAll(r);}
 function onSlider(v){curRate=v/100;document.querySelectorAll('.scen-btn').forEach(b=>b.classList.remove('on'));updateAll(curRate);}
-function sw(id){const ids=['annual','proj','season','country','west'];document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',ids[i]===id));document.querySelectorAll('.pnl').forEach(p=>p.classList.toggle('on',p.id===id));}
+function sw(id){
+  const ids=['annual','proj','season','country','west','budget'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',ids[i]===id));
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.toggle('on',p.id===id));
+}
+
+/* ─────────── 수익 예산 모델 ─────────── */
+const ROOM_CFG=[
+  {key:'tw',  name:'TW 트윈',     cnt:14},
+  {key:'tp',  name:'TP 트리플',   cnt:13},
+  {key:'d',   name:'D 더블',      cnt:4 },
+  {key:'etw', name:'E·TW',        cnt:1 },
+  {key:'ed',  name:'E·D',         cnt:1 },
+];
+const TOTAL_ROOMS=33;
+let bOcc=70;
+let bStrat='mod';
+
+const STRAT_NOTES={
+  agg:'적극 변동: 계절 지수를 그대로 요금에 반영 (±25%). 성수기 수익 극대화, 비수기 가격 하락 폭 큼.',
+  mod:'완만 변동: 계절 지수에 비례해 ±20% 범위 내 자동 조정. 비수기 가격 급락 방지.',
+  fix:'고정 요금: 연중 동일 요금 적용. 운영 단순화, 성수기 수익 기회 일부 포기.'
+};
+
+function priceAdj(idx,strat){
+  if(strat==='fix') return 1.0;
+  if(strat==='agg') return Math.max(0.75, Math.min(1.25, idx/100));
+  // mod: 0.88–1.20
+  return Math.max(0.88, Math.min(1.20, idx/100));
+}
+
+function getRoomRates(){
+  return ROOM_CFG.map(r=>({
+    ...r,
+    wd: +document.getElementById('b_'+r.key+'_wd').value || 90000,
+    we: +document.getElementById('b_'+r.key+'_we').value || 145000,
+  }));
+}
+
+function calcBudget(){
+  const rooms=getRoomRates();
+  return MONTHS.map((_,mi)=>{
+    const idx=avg[mi];
+    const days=DAYS26[mi];
+    const occ=Math.min(95, bOcc*(idx/100));
+    const pMult=priceAdj(idx,bStrat);
+    // blended base rate (전체 객실 가중 평균)
+    const totalRooms=rooms.reduce((s,r)=>s+r.cnt,0);
+    const blendedBase=rooms.reduce((s,r)=>s+(r.wd*(5/7)+r.we*(2/7))*r.cnt,0)/totalRooms;
+    const blendedAdj=Math.round(blendedBase*pMult);
+    // total revenue
+    let rev=0;
+    rooms.forEach(r=>{
+      const nightsWD=days*(5/7);
+      const nightsWE=days*(2/7);
+      rev+=r.cnt*(r.wd*pMult*nightsWD+r.we*pMult*nightsWE)*(occ/100);
+    });
+    return {idx, days, occ:+occ.toFixed(1), rev:Math.round(rev), blended:blendedAdj, pMult};
+  });
+}
+
+let revChart=null;
+function updateBudget(){
+  const data=calcBudget();
+  const totalRev=data.reduce((s,d)=>s+d.rev,0);
+  const avgOcc=+(data.reduce((s,d)=>s+d.occ,0)/12).toFixed(1);
+  const revpar=Math.round(totalRev/(TOTAL_ROOMS*365));
+  const peakIdx=data.reduce((mi,d,i,a)=>d.rev>a[mi].rev?i:mi,0);
+  const lowIdx=data.reduce((mi,d,i,a)=>d.rev<a[mi].rev?i:mi,0);
+
+  // KPI 업데이트
+  document.getElementById('b_kv_rev').textContent=(totalRev/10000/10000).toFixed(2)+'억원';
+  document.getElementById('b_kv_rev_sub').textContent=(Math.round(totalRev/10000)).toLocaleString()+'만원';
+  document.getElementById('b_kv_occ').textContent=avgOcc+'%';
+  document.getElementById('b_kv_revpar').textContent=revpar.toLocaleString()+'원';
+  document.getElementById('b_kv_peak').textContent=MONTHS[peakIdx];
+  document.getElementById('b_kv_peak_sub').textContent='계절지수 '+data[peakIdx].idx+' · 최저월 '+MONTHS[lowIdx];
+
+  // 테이블 업데이트
+  const tbody=document.getElementById('b_tbody');
+  tbody.innerHTML='';
+  data.forEach((d,i)=>{
+    const isHi=d.idx>=110, isLo=d.idx<85;
+    const pill=isHi?'<span class="pill pill-hi">성수기</span>':isLo?'<span class="pill pill-lo">비수기</span>':'<span class="pill pill-ok">평균</span>';
+    const occColor=d.occ>=80?'#1D9E75':d.occ<55?'#E24B4A':'#3D2B1A';
+    const revStr=Math.round(d.rev/10000).toLocaleString()+'만원';
+    const multStr=(d.pMult>=1?'+':'')+((d.pMult-1)*100).toFixed(0)+'%';
+    const multColor=d.pMult>1?'#1D9E75':d.pMult<1?'#E24B4A':'#888780';
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td style="font-weight:700">${MONTHS[i]} ${pill}</td>
+      <td style="color:${isHi?'#1E3A8A':isLo?'#B91C1C':'#3D2B1A'};font-weight:${isHi||isLo?'700':'400'}">${d.idx}</td>
+      <td style="color:${multColor};font-weight:700">${multStr}</td>
+      <td style="font-weight:700;color:${occColor}">${d.occ}%</td>
+      <td>${d.blended.toLocaleString()}원</td>
+      <td style="font-weight:700">${revStr}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // 합계 행
+  const sumTr=document.createElement('tr');
+  sumTr.style.cssText='background:#3D2B1A;color:#EDE5D8';
+  sumTr.innerHTML=`
+    <td style="font-weight:700;padding:8px 10px">연간 합계</td>
+    <td>—</td>
+    <td>—</td>
+    <td style="font-weight:700">${avgOcc}%</td>
+    <td>—</td>
+    <td style="font-weight:700">${Math.round(totalRev/10000).toLocaleString()}만원</td>
+  `;
+  tbody.appendChild(sumTr);
+
+  // 차트 업데이트
+  const revData=data.map(d=>Math.round(d.rev/10000));
+  if(revChart) revChart.destroy();
+  revChart=new Chart(document.getElementById('c_rev'),{
+    type:'bar',
+    data:{
+      labels:MONTHS,
+      datasets:[{
+        label:'예상 매출(만원)',
+        data:revData,
+        backgroundColor:data.map(d=>d.idx>=110?'#1E3A8A':d.idx>=95?'#3B82F6':'#93C5FD'),
+        borderRadius:4
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>`${c.parsed.y.toLocaleString()}만원`}}
+      },
+      scales:{
+        y:{grid:{color:gc},ticks:{color:tc,font:{size:11},callback:v=>v.toLocaleString()+'만'}},
+        x:{grid:{display:false},ticks:{color:tc,font:{size:11},autoSkip:false}}
+      }
+    }
+  });
+
+  // 인사이트 생성
+  const insDiv=document.getElementById('b_insights');
+  insDiv.innerHTML='';
+  const maxRev=Math.max(...revData), minRev=Math.min(...revData);
+  const gap=((maxRev-minRev)/minRev*100).toFixed(0);
+  const revArr=[
+    {icon:'📈', text:`<b>${MONTHS[peakIdx]}</b>이 최고 매출 예상월 (${revData[peakIdx].toLocaleString()}만원). 이 시기 요금을 최대한 올려 수익성을 확보하세요.`},
+    {icon:'📉', text:`<b>${MONTHS[lowIdx]}</b>이 최저 매출 예상월 (${revData[lowIdx].toLocaleString()}만원). 장기 투숙 할인, 패키지 상품, OTA 프로모션으로 점유율을 높이세요.`},
+    {icon:'📊', text:`성수기↔비수기 매출 격차 <b>${gap}%</b>. ${bStrat==='fix'?'고정 요금제는 성수기 수익 기회를 포기합니다. 완만 변동 전략으로 변경을 고려하세요.':'계절 연동 요금이 격차를 완화하고 있습니다.'}`},
+    {icon:'🏨', text:`현재 목표 가동률 <b>${bOcc}%</b> 기준 연간 RevPAR <b>${revpar.toLocaleString()}원</b>. 가동률 10%p 상승 시 연매출 약 <b>${Math.round(totalRev*0.1/10000).toLocaleString()}만원</b> 추가.`},
+    {icon:'🗓️', text:`<b>7월 지수 104</b> — 비수기가 아닙니다. 여름 가격을 지나치게 낮게 설정하지 마세요. 10월(지수 ${avg[9]})은 연중 최성수기로 최고가를 적용하세요.`},
+  ];
+  revArr.forEach(r=>{
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;gap:8px;align-items:flex-start;padding:10px 12px;background:#FFF9EC;border-radius:6px;line-height:1.6;font-size:12px;color:#3D2B1A';
+    d.innerHTML=`<span style="font-size:16px;flex-shrink:0">${r.icon}</span><span>${r.text}</span>`;
+    insDiv.appendChild(d);
+  });
+}
+
+function setBStrat(s, btn){
+  bStrat=s;
+  document.querySelectorAll('.strat-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('b_strat_note').textContent=STRAT_NOTES[s];
+  updateBudget();
+}
+
+// 초기 실행
+updateBudget();
 </script>
 </body>
 </html>
